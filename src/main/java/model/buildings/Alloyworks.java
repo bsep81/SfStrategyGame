@@ -1,12 +1,11 @@
 package model.buildings;
 
-
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class MetalMine implements ProductionBuilding{
+public class Alloyworks implements ProductionBuilding{
 
     int level;
     final int initialMetalCost;
@@ -18,7 +17,7 @@ public class MetalMine implements ProductionBuilding{
         if(level == 0) {
             return 0;
         }
-        return (int) (baseProduction * Math.pow(1.6, level));
+        return (int) (baseProduction * Math.pow(1.5, level));
     }
 
     @Override
