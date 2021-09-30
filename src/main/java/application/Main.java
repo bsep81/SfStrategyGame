@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.buildings.MetalMine;
 
 public class Main extends Application {
     @Override
@@ -13,6 +14,8 @@ public class Main extends Application {
         Scene scene = new Scene(mainPane);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
 
     }
 }
