@@ -10,8 +10,8 @@ import model.buildings.MetalMine;
 @Builder
 public class Colony {
 
-    private int metal;
-    private int alloys;
+    private Integer metal;
+    private Integer alloys;
     private final SimpleStringProperty metalProperty = new SimpleStringProperty();
     private final SimpleStringProperty alloysProperty = new SimpleStringProperty();
     private MetalMine metalMine;
@@ -21,7 +21,7 @@ public class Colony {
     public void produceResources() {
         metal += metalMine.produceResources();
         alloys += alloyworks.produceResources();
-        metalProperty.set("" + metal);
-        alloysProperty.setValue("" + alloys);
+        metalProperty.set(metal.toString());
+        alloysProperty.setValue(alloys.toString());
     }
 }
