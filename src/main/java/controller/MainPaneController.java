@@ -53,19 +53,25 @@ public class MainPaneController {
     @FXML
     void initialize() {
         nextTurnButton.setOnAction(event -> nextTurn());
+        initializeMetalMine();
+        initializeAlloyworks();
 
-        metalLabel.textProperty().bind(colony.getMetalProperty());
-        metalMineCostLabel.textProperty().bind(colony.getMetalMine().getCostProperty());
-        metalMineBuyButton.setOnAction(event -> colony.setMetalMine((MetalMine) upgrade(colony.getMetalMine())));
-        metalMineDescriptionLabel.textProperty().bind(colony.getMetalMine().getProductionProperty());
-        metalMineLabel.textProperty().bind(colony.getMetalMine().getLevelProperty());
+    }
 
+    private void initializeAlloyworks() {
         alloysLabel.textProperty().bind(colony.getAlloysProperty());
         alloyworksCostLabel.textProperty().bind(colony.getAlloyworks().getCostProperty());
         alloyworksBuyButton.setOnAction(event -> colony.setAlloyworks((Alloyworks) upgrade(colony.getAlloyworks())));
         alloyworksDescriptionLabel.textProperty().bind(colony.getAlloyworks().getProductionProperty());
         alloyworksLabel.textProperty().bind(colony.getAlloyworks().getLevelProperty());
+    }
 
+    private void initializeMetalMine() {
+        metalLabel.textProperty().bind(colony.getMetalProperty());
+        metalMineCostLabel.textProperty().bind(colony.getMetalMine().getCostProperty());
+        metalMineBuyButton.setOnAction(event -> colony.setMetalMine((MetalMine) upgrade(colony.getMetalMine())));
+        metalMineDescriptionLabel.textProperty().bind(colony.getMetalMine().getProductionProperty());
+        metalMineLabel.textProperty().bind(colony.getMetalMine().getLevelProperty());
     }
 
     private Building upgrade(Building building) {
