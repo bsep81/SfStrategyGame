@@ -46,8 +46,8 @@ public class MainPaneController {
     private final Colony colony = Colony.builder()
             .metal(500)
             .alloys(500)
-            .metalMine(new MetalMine())
-            .alloyworks(new Alloyworks())
+            .metalMine(new MetalMine(500, 0))
+            .alloyworks(new Alloyworks(1000, 500))
             .build();
 
     @FXML

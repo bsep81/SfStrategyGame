@@ -1,20 +1,26 @@
 package model.buildings;
 
 
-
 import javafx.beans.property.SimpleStringProperty;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
-public class MetalMine implements ProductionBuilding{
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
+@ToString
+public class MetalMine extends Building implements ResourceBuilding {
 
-    private int level = 0;
     private SimpleStringProperty levelProperty = new SimpleStringProperty("Metal mine level " + level);
     private SimpleStringProperty costProperty = new SimpleStringProperty("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
     private SimpleStringProperty productionProperty = new SimpleStringProperty("Metal production: " + currentProduction());
-    private static final int INITIAL_METAL_COST = 500;
-    private static final int INITIAL_ALLOYS_COST = 0;
     private static final int BASE_PRODUCTION = 100;
+
+    public MetalMine(int initialMetalCost, int initialAlloysCost) {
+        super(initialMetalCost, initialAlloysCost);
+    }
 
 
     public int currentProduction(){
@@ -31,15 +37,6 @@ public class MetalMine implements ProductionBuilding{
         return currentProduction();
     }
 
-    @Override
-    public int upgradeMetalCost() {
-        return (int) (INITIAL_METAL_COST * Math.pow(2, level));
-    }
-
-    @Override
-    public int upgradeAlloysCost() {
-        return (int) (INITIAL_ALLOYS_COST * Math.pow(2, level));
-    }
 
     @Override
     public void upgrade() {

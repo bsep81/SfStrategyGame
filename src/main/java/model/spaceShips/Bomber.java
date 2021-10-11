@@ -7,6 +7,7 @@ public class Bomber implements SpaceShip {
 
     private SpaceShipBaseParameters baseParameters;
     private Integer hullPoints;
+    private final Integer PRODUCTION_POINTS = 75;
 
     public Bomber(SpaceShipBaseParameters baseParameters) {
         this.baseParameters = baseParameters;
@@ -20,5 +21,10 @@ public class Bomber implements SpaceShip {
     @Override
     public Integer getShield() {
         return null;
+    }
+
+    @Override
+    public Integer getProductionPoints() {
+        return PRODUCTION_POINTS;
     }
 }

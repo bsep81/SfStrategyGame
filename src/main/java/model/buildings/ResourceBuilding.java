@@ -1,6 +1,6 @@
 package model.buildings;
 
-public interface ProductionBuilding extends Building{
+public interface ResourceBuilding {
 
     int currentProduction();
     int produceResources();
