@@ -11,6 +11,7 @@ public class SpaceShipBaseParameters {
     private Integer attackPower;
 
 
+
     public SpaceShipBaseParameters(SpaceShipType spaceShipType, Integer hullPoints, Integer shieldPoints, Integer attackPower) {
         this.type = spaceShipType;
         this.hullPoints = hullPoints;
