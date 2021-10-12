@@ -7,8 +7,9 @@ import model.Colony;
 import model.buildings.Alloyworks;
 import model.buildings.Building;
 import model.buildings.MetalMine;
+import model.buildings.Shipyard;
 
-public class MainPaneController {
+public class BuildingsPaneController {
 
     @FXML
     private Button metalMineBuyButton;
@@ -41,13 +42,25 @@ public class MainPaneController {
     private Label alloyworksCostLabel;
 
     @FXML
+    private Label shipyardLabel;
+
+    @FXML
+    private Button shipyardBuyButton;
+
+    @FXML
+    private Label shipyardCostLabel;
+
+
+
+    @FXML
     private Button nextTurnButton;
 
     private final Colony colony = Colony.builder()
-            .metal(500)
+            .metal(1500)
             .alloys(500)
             .metalMine(new MetalMine(500, 0))
             .alloyworks(new Alloyworks(1000, 500))
+            .shipyard(new Shipyard(5000, 5000))
             .build();
 
     @FXML
@@ -55,11 +68,16 @@ public class MainPaneController {
         nextTurnButton.setOnAction(event -> nextTurn());
         initializeMetalMine();
         initializeAlloyworks();
+        initializeShipyard();
+        initializeOthers();
 
     }
 
+
+
+
     private void initializeAlloyworks() {
-        alloysLabel.textProperty().bind(colony.getAlloysProperty());
+
         alloyworksCostLabel.textProperty().bind(colony.getAlloyworks().getCostProperty());
         alloyworksBuyButton.setOnAction(event -> colony.setAlloyworks((Alloyworks) upgrade(colony.getAlloyworks())));
         alloyworksDescriptionLabel.textProperty().bind(colony.getAlloyworks().getProductionProperty());
@@ -67,11 +85,22 @@ public class MainPaneController {
     }
 
     private void initializeMetalMine() {
-        metalLabel.textProperty().bind(colony.getMetalProperty());
+
         metalMineCostLabel.textProperty().bind(colony.getMetalMine().getCostProperty());
         metalMineBuyButton.setOnAction(event -> colony.setMetalMine((MetalMine) upgrade(colony.getMetalMine())));
         metalMineDescriptionLabel.textProperty().bind(colony.getMetalMine().getProductionProperty());
         metalMineLabel.textProperty().bind(colony.getMetalMine().getLevelProperty());
+    }
+
+    private void initializeShipyard() {
+        shipyardCostLabel.textProperty().bind(colony.getShipyard().getCostProperty());
+        shipyardBuyButton.setOnAction(event -> colony.setShipyard((Shipyard) upgrade(colony.getShipyard())));
+        shipyardLabel.textProperty().bind(colony.getShipyard().getLevelProperty());
+    }
+
+    private void initializeOthers() {
+        alloysLabel.textProperty().bind(colony.getAlloysProperty());
+        metalLabel.textProperty().bind(colony.getMetalProperty());
     }
 
     private Building upgrade(Building building) {

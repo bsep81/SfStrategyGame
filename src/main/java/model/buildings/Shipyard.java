@@ -1,5 +1,6 @@
 package model.buildings;
 
+import javafx.beans.property.SimpleStringProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +18,10 @@ import java.util.Queue;
 @ToString
 public class Shipyard extends Building implements ManufacturingBuilding {
 
+    private SimpleStringProperty levelProperty = new SimpleStringProperty("Shipyard level " + level);
+    private SimpleStringProperty costProperty = new SimpleStringProperty("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
+
+
     private Queue<SpaceShip> spaceShipsProductionQueue = new LinkedList<>();
     private SpaceShip currentProduction;
     private Integer productionPointsLeft;
@@ -31,6 +36,8 @@ public class Shipyard extends Building implements ManufacturingBuilding {
     @Override
     public void upgrade() {
         level++;
+        levelProperty.set("Shipyard level " + level);
+        costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
 
     }
 
