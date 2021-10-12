@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Pane mainPane = FXMLLoader.load(this.getClass().getResource("/mainPane.fxml"));
+        Pane mainPane = FXMLLoader.load(this.getClass().getResource("/buildingsPane.fxml"));
         Scene scene = new Scene(mainPane);
         primaryStage.setScene(scene);
         primaryStage.show();

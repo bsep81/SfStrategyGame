@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import model.buildings.Alloyworks;
 import model.buildings.MetalMine;
+import model.buildings.Shipyard;
 
 @Data
 @Builder
@@ -16,6 +17,7 @@ public class Colony {
     private final SimpleStringProperty alloysProperty = new SimpleStringProperty();
     private MetalMine metalMine;
     private Alloyworks alloyworks;
+    private Shipyard shipyard;
 
 
     public void produceResources() {
