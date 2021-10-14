@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="130.0" prefWidth="718.0">
+         <children>
+            <ListView fx:id="productionListView" prefHeight="200.0" prefWidth="200.0" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="figterRadio" mnemonicParsing="false" prefHeight="29.0" prefWidth="87.0" text="FIGHTER">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="spaceship" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="cruiserRadio" mnemonicParsing="false" prefHeight="35.0" prefWidth="87.0" text="CRUISER" toggleGroup="$spaceship" />
+                  <RadioButton fx:id="destroyerRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="87.0" text="DESTROYER" toggleGroup="$spaceship" />
+                  <RadioButton fx:id="bomberRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" text="BOMBER" toggleGroup="$spaceship" />
+               </children>
+            </VBox>
+            <Button fx:id="addProductionButton" alignment="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="87.0" text="Add to production list" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
