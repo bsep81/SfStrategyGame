@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import model.spaceShips.SpaceShip;
+import model.spaceShips.SpaceShipFactory;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -24,6 +25,7 @@ public class Shipyard extends Building implements ManufacturingBuilding {
 
     private Queue<SpaceShip> spaceShipsProductionQueue = new LinkedList<>();
     private SpaceShip currentProduction;
+    private SpaceShipFactory factory = new SpaceShipFactory();
     private Integer productionPointsLeft;
     private Integer productionProgress;
 
@@ -47,6 +49,9 @@ public class Shipyard extends Building implements ManufacturingBuilding {
     }
 
 
+    public void addProduction(SpaceShip production) {
+        spaceShipsProductionQueue.add(production);
+    }
 
 
     @Override
