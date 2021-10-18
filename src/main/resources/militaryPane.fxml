@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MilitaryPaneController">
    <children>
       <HBox alignment="CENTER" prefHeight="130.0" prefWidth="718.0">
          <children>
@@ -18,12 +17,12 @@
                <children>
                   <RadioButton fx:id="figterRadio" mnemonicParsing="false" prefHeight="29.0" prefWidth="87.0" text="FIGHTER">
                      <toggleGroup>
-                        <ToggleGroup fx:id="spaceship" />
+                        <ToggleGroup fx:id="production" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="cruiserRadio" mnemonicParsing="false" prefHeight="35.0" prefWidth="87.0" text="CRUISER" toggleGroup="$spaceship" />
-                  <RadioButton fx:id="destroyerRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="87.0" text="DESTROYER" toggleGroup="$spaceship" />
-                  <RadioButton fx:id="bomberRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" text="BOMBER" toggleGroup="$spaceship" />
+                  <RadioButton fx:id="cruiserRadio" mnemonicParsing="false" prefHeight="35.0" prefWidth="87.0" text="CRUISER" toggleGroup="$production" />
+                  <RadioButton fx:id="destroyerRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="87.0" text="DESTROYER" toggleGroup="$production" />
+                  <RadioButton fx:id="bomberRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" text="BOMBER" toggleGroup="$production" />
                </children>
             </VBox>
             <Button fx:id="addProductionButton" alignment="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="87.0" text="Add to production list" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">

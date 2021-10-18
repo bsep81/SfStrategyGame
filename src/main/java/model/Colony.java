@@ -26,4 +26,11 @@ public class Colony {
         metalProperty.set(metal.toString());
         alloysProperty.setValue(alloys.toString());
     }
+
+    public void payMetal(Integer metalCost){
+        metal -= metalCost;
+    }
+    public void payAlloys(Integer alloysCost){
+        alloys -= alloysCost;
+    }
 }
