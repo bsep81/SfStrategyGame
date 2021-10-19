@@ -1,5 +1,7 @@
 package model.buildings;
 
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,12 +24,12 @@ public class Shipyard extends Building implements ManufacturingBuilding {
     private SimpleStringProperty levelProperty = new SimpleStringProperty("Shipyard level " + level);
     private SimpleStringProperty costProperty = new SimpleStringProperty("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
 
-
     private Queue<SpaceShip> spaceShipsProductionQueue = new LinkedList<>();
     private SpaceShip currentProduction;
     private SpaceShipFactory factory = new SpaceShipFactory();
     private Integer productionPointsLeft;
     private Integer productionProgress;
+    private LongProperty shipsProducedProperty = new SimpleLongProperty();
 
 
     public Shipyard(int initialMetalCost, int initialAlloysCost) {
@@ -48,25 +50,25 @@ public class Shipyard extends Building implements ManufacturingBuilding {
         return BASE_PRODUCTION_POINTS * level;
     }
 
-
     public void addProduction(SpaceShip production) {
         spaceShipsProductionQueue.add(production);
     }
-
 
     @Override
     public List<SpaceShip> manufacture() {
         productionPointsLeft = resetManufacturingPoints();
         List<SpaceShip> producedShips = new ArrayList<>();
         if (currentProduction == null && !spaceShipsProductionQueue.isEmpty()) {
-            currentProduction = spaceShipsProductionQueue.poll();
+            currentProduction = spaceShipsProductionQueue.peek();
             productionProgress = 0;
         }
         while (productionPointsLeft > 0 && currentProduction != null) {
             if (productionPointsLeft >= currentProduction.getProductionPoints() - productionProgress) {
                 producedShips.add(currentProduction);
                 productionPointsLeft -= currentProduction.getProductionPoints() - productionProgress;
-                currentProduction = spaceShipsProductionQueue.poll();
+                spaceShipsProductionQueue.poll();
+                shipsProducedProperty.set(shipsProducedProperty.get() + 1);
+                currentProduction = spaceShipsProductionQueue.peek();
                 productionProgress = 0;
             }else{
                 productionProgress += productionPointsLeft;

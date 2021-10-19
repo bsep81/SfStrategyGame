@@ -1,15 +1,21 @@
 package model;
 
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import lombok.Data;
 import model.buildings.Alloyworks;
 import model.buildings.MetalMine;
 import model.buildings.Shipyard;
 
+import java.util.ArrayList;
+
 @Data
 public class Game {
 
     private static final Game INSTANCE = new Game();
+    private Integer turn = 0;
+    private IntegerProperty turnProperty = new SimpleIntegerProperty();
 
     private Game(){};
 
@@ -24,6 +30,7 @@ public class Game {
             .metalMine(new MetalMine(500, 0))
             .alloyworks(new Alloyworks(1000, 500))
             .shipyard(new Shipyard(5000, 5000))
+            .spaceShips(new ArrayList<>())
             .build();
 
 
