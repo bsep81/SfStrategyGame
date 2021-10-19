@@ -1,5 +1,9 @@
 package controller;
 
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -39,16 +43,22 @@ public class MilitaryPaneController {
 
     private final Game game = Game.getInstance();
 
+    private final LongProperty shipProduced = new SimpleLongProperty();
 
     @FXML
     void initialize() {
+        shipProduced.bind(game.getColony().getShipyard().getShipsProducedProperty());
+        shipProduced.addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                productionListView.setItems(getProductionList());
+            }
+        });
+
 
         addProductionButton.setOnAction(event -> {
             addChosenProduction();
-            System.out.println(game.getColony().getShipyard().getSpaceShipsProductionQueue());
-
             productionListView.setItems(getProductionList());
-            productionListView.refresh();
         });
 
 
@@ -75,9 +85,13 @@ public class MilitaryPaneController {
             game.getColony().payMetal(Bomber.METAL_COST);
             game.getColony().payAlloys(Bomber.ALLOYS_COST);
         }
+
+        game.getColony().setMetalProperty();
+        game.getColony().setAlloysProperty();
     }
 
-    private boolean canAffordSpaceShip(SpaceShipType type){
+
+    private boolean canAffordSpaceShip(SpaceShipType type) {
         switch (type) {
             case FIGHTER -> {
                 return game.getColony().getMetal() >= Fighter.METAL_COST && game.getColony().getAlloys() >= Fighter.ALLOYS_COST;
@@ -97,7 +111,7 @@ public class MilitaryPaneController {
         }
     }
 
-    ObservableList<String> getProductionList(){
+    ObservableList<String> getProductionList() {
         ObservableList<String> productionList = FXCollections.observableArrayList();
         game.getColony().getShipyard().getSpaceShipsProductionQueue()
                 .forEach(spaceShip -> productionList.add(spaceShip.getClass().getName().substring(17)));
