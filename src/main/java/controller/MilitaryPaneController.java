@@ -1,15 +1,12 @@
 package controller;
 
-import javafx.beans.property.LongProperty;
-import javafx.beans.property.SimpleLongProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import model.Game;
 import model.spaceShips.Bomber;
@@ -41,20 +38,22 @@ public class MilitaryPaneController {
     @FXML
     private Button addProductionButton;
 
-    private final Game game = Game.getInstance();
+    @FXML
+    private TextArea fleetInfoTextArea;
 
-    private final LongProperty shipProduced = new SimpleLongProperty();
+    private final Game game = Game.getInstance();
 
     @FXML
     void initialize() {
-        shipProduced.bind(game.getColony().getShipyard().getShipsProducedProperty());
-        shipProduced.addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                productionListView.setItems(getProductionList());
-            }
-        });
+        figterRadio.setSelected(true);
+        fleetInfoTextArea.setText(game.getColony().getFleetInfo());
 
+        game.getTurnProperty()
+                .addListener((observable, oldValue, newValue) -> {
+                    productionListView.setItems(getProductionList());
+                    fleetInfoTextArea.setText(game.getColony().getFleetInfo());
+
+                });
 
         addProductionButton.setOnAction(event -> {
             addChosenProduction();
@@ -111,12 +110,16 @@ public class MilitaryPaneController {
         }
     }
 
-    ObservableList<String> getProductionList() {
+    private ObservableList<String> getProductionList() {
         ObservableList<String> productionList = FXCollections.observableArrayList();
         game.getColony().getShipyard().getSpaceShipsProductionQueue()
                 .forEach(spaceShip -> productionList.add(spaceShip.getClass().getName().substring(17)));
 
         return productionList;
     }
+
+
+
+
 
 }

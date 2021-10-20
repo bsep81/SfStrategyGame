@@ -76,6 +76,7 @@ public class Shipyard extends Building implements ManufacturingBuilding {
             }
 
         }
+
         return producedShips;
     }
 
