@@ -35,12 +35,14 @@ public class MainPaneController {
     }
 
     private void nextTurn() {
-        game.setTurn(game.getTurn() + 1 );
-        game.getTurnProperty().set(game.getTurn());
+
         game.getColony().produceResources();
         List<SpaceShip> producedSpaceShips = game.getColony().getShipyard().manufacture();
         if (!producedSpaceShips.isEmpty()) {
             game.getColony().getSpaceShips().addAll(producedSpaceShips);
+
         }
+        game.setTurn(game.getTurn() + 1 );
+        game.getTurnProperty().set(game.getTurn());
     }
 }
