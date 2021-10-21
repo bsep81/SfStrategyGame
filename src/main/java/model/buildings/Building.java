@@ -1,10 +1,12 @@
 package model.buildings;
 
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 
 @RequiredArgsConstructor
+@Data
 public abstract class Building {
 
     protected int level = 0;

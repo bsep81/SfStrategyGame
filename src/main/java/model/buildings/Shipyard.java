@@ -46,7 +46,7 @@ public class Shipyard extends Building implements ManufacturingBuilding {
     }
 
     @Override
-    public int resetManufacturingPoints() {
+    public int getMaxManufacturingPoints() {
         return BASE_PRODUCTION_POINTS * level;
     }
 
@@ -56,7 +56,7 @@ public class Shipyard extends Building implements ManufacturingBuilding {
 
     @Override
     public List<SpaceShip> manufacture() {
-        productionPointsLeft = resetManufacturingPoints();
+        productionPointsLeft = getMaxManufacturingPoints();
         List<SpaceShip> producedShips = new ArrayList<>();
         if (currentProduction == null && !spaceShipsProductionQueue.isEmpty()) {
             currentProduction = spaceShipsProductionQueue.peek();

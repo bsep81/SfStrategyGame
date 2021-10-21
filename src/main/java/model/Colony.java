@@ -21,8 +21,8 @@ public class Colony {
 
     private Integer metal;
     private Integer alloys;
-    private final SimpleStringProperty metalProperty = new SimpleStringProperty();
-    private final SimpleStringProperty alloysProperty = new SimpleStringProperty();
+    private SimpleStringProperty metalProperty;
+    private SimpleStringProperty alloysProperty;
     private MetalMine metalMine;
     private Alloyworks alloyworks;
     private Shipyard shipyard;

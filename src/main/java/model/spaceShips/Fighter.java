@@ -7,7 +7,7 @@ public class Fighter implements SpaceShip{
 
     private SpaceShipBaseParameters baseParameters;
     private Integer hullPoints;
-    private final Integer PRODUCTION_POINTS = 4;
+    private static final Integer PRODUCTION_POINTS = 4;
     public static final Integer METAL_COST = 1500;
     public static final Integer ALLOYS_COST = 500;
 
