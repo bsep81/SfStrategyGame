@@ -112,11 +112,14 @@ public class MilitaryPaneController {
 
     private ObservableList<String> getProductionList() {
         ObservableList<String> productionList = FXCollections.observableArrayList();
+
         game.getColony().getShipyard().getSpaceShipsProductionQueue()
-                .forEach(spaceShip -> productionList.add(spaceShip.getClass().getName().substring(17)));
+                .forEach(spaceShip ->  productionList.add(spaceShip.getClass().getName().substring(17)));
 
         return productionList;
     }
+
+
 
 
 

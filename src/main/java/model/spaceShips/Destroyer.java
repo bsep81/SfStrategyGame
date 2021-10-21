@@ -2,8 +2,6 @@ package model.spaceShips;
 
 import lombok.Data;
 
-import java.util.PrimitiveIterator;
-
 @Data
 public class Destroyer implements SpaceShip {
 
