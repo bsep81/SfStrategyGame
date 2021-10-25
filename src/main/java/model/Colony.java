@@ -36,17 +36,18 @@ public class Colony {
         setAlloysProperty();
     }
 
-    public void payMetal(Integer metalCost){
+    public void payMetal(Integer metalCost) {
         metal -= metalCost;
         setMetalProperty();
+
     }
 
-    public void payAlloys(Integer alloysCost){
+    public void payAlloys(Integer alloysCost) {
         alloys -= alloysCost;
         setAlloysProperty();
     }
 
-    public void setMetalProperty(){
+    public void setMetalProperty() {
         metalProperty.set("METAL - " + metal.toString());
     }
 
@@ -54,7 +55,7 @@ public class Colony {
         alloysProperty.set("ALLOYS - " + alloys.toString());
     }
 
-    public String getFleetInfo(){
+    public String getFleetInfo() {
 
         StringBuilder sb = new StringBuilder();
         long fighterCount = spaceShips.stream().filter(spaceShip -> spaceShip.getClass().equals(Fighter.class)).count();
@@ -70,9 +71,6 @@ public class Colony {
                 .append(destroyerCount)
                 .append("\n\nBOMBER    - ")
                 .append(bomberCount);
-
-
-
 
         return sb.toString();
     }

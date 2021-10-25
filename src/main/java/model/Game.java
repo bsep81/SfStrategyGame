@@ -15,15 +15,13 @@ import java.util.ArrayList;
 public class Game {
 
     private static final Game INSTANCE = new Game();
-    private Integer turn = 0;
-    private IntegerProperty turnProperty = new SimpleIntegerProperty();
-
-    private Game(){};
-
+    private Game(){}
     public static Game getInstance(){
         return INSTANCE;
     }
 
+    private Integer turn = 0;
+    private IntegerProperty turnProperty = new SimpleIntegerProperty();
 
     private final Colony colony = Colony.builder()
             .metal(1500)
