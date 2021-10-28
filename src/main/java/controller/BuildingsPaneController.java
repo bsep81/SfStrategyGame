@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import model.Game;
 import model.buildings.Alloyworks;
 import model.buildings.Building;
+import model.buildings.Laboratory;
 import model.buildings.MetalMine;
 import model.buildings.Shipyard;
 
@@ -42,7 +43,13 @@ public class BuildingsPaneController {
     private Button shipyardBuyButton;
 
     @FXML
-    private Label shipyardCostLabel;
+    private Label laboratoryCostLabel;
+
+    @FXML
+    private Label laboratoryLabel;
+
+    @FXML
+    private Button laboratoryBuyButton;
 
     private final Game game = Game.getInstance();
 
@@ -52,6 +59,7 @@ public class BuildingsPaneController {
         initializeMetalMine();
         initializeAlloyworks();
         initializeShipyard();
+        initializeLaboratory();
 
     }
 
@@ -71,9 +79,14 @@ public class BuildingsPaneController {
     }
 
     private void initializeShipyard() {
-        shipyardCostLabel.textProperty().bind(game.getColony().getShipyard().getCostProperty());
+        laboratoryCostLabel.textProperty().bind(game.getColony().getShipyard().getCostProperty());
         shipyardBuyButton.setOnAction(event -> game.getColony().setShipyard((Shipyard) upgrade(game.getColony().getShipyard())));
         shipyardLabel.textProperty().bind(game.getColony().getShipyard().getLevelProperty());
+    }
+    private void initializeLaboratory() {
+        laboratoryCostLabel.textProperty().bind(game.getColony().getLaboratory().getCostProperty());
+        laboratoryBuyButton.setOnAction(event -> game.getColony().setLaboratory((Laboratory) upgrade(game.getColony().getLaboratory())));
+        laboratoryLabel.textProperty().bind(game.getColony().getLaboratory().getLevelProperty());
     }
 
     private Building upgrade(Building building) {

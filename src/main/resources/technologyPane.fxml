@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="84.0" prefWidth="745.0">
+         <children>
+            <Label fx:id="hullLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0" text="HULL TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="hullTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0" text="UPGRADE" />
+            <Label fx:id="hullTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0" text="Cost: 1000 metal" />
+            <Label fx:id="hullTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0" text="Every level of hull technology increases hull strength of your space ships by 10%" textAlignment="CENTER" wrapText="true" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="84.0" prefWidth="745.0">
+         <children>
+            <Label fx:id="shieldLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0" text="SHIELD TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="shieldTechnologyUpgradeButton1" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0" text="UPGRADE" />
+            <Label fx:id="shieldTechnologyCostLabel1" alignment="CENTER" prefHeight="102.0" prefWidth="243.0" text="Cost: 1000 metal, 1000 alloys" />
+            <Label fx:id="shieldTechnologyDescriptionLabel1" alignment="CENTER" prefHeight="102.0" prefWidth="238.0" text="Every level of shield technology increases shield power of your space ships by 10%" textAlignment="CENTER" wrapText="true" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

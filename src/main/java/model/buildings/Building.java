@@ -14,6 +14,7 @@ public abstract class Building {
     protected final int INITIAL_ALLOYS_COST;
 
 
+
     public int upgradeMetalCost(){
         return (int) (INITIAL_METAL_COST * Math.pow(2, level));
     }
