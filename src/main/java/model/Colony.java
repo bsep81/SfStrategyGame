@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import lombok.Builder;
 import lombok.Data;
 import model.buildings.Alloyworks;
+import model.buildings.Laboratory;
 import model.buildings.MetalMine;
 import model.buildings.Shipyard;
 import model.spaceShips.Bomber;
@@ -26,6 +27,7 @@ public class Colony {
     private MetalMine metalMine;
     private Alloyworks alloyworks;
     private Shipyard shipyard;
+    private Laboratory laboratory;
     private List<SpaceShip> spaceShips;
 
 

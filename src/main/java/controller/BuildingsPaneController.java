@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import model.Game;
 import model.buildings.Alloyworks;
 import model.buildings.Building;
+import model.buildings.Laboratory;
 import model.buildings.MetalMine;
 import model.buildings.Shipyard;
 
@@ -36,13 +37,22 @@ public class BuildingsPaneController {
     private Label alloyworksCostLabel;
 
     @FXML
+    private Label shipyardCostLabel;
+
+    @FXML
     private Label shipyardLabel;
 
     @FXML
     private Button shipyardBuyButton;
 
     @FXML
-    private Label shipyardCostLabel;
+    private Label laboratoryCostLabel;
+
+    @FXML
+    private Label laboratoryLabel;
+
+    @FXML
+    private Button laboratoryBuyButton;
 
     private final Game game = Game.getInstance();
 
@@ -52,6 +62,7 @@ public class BuildingsPaneController {
         initializeMetalMine();
         initializeAlloyworks();
         initializeShipyard();
+        initializeLaboratory();
 
     }
 
@@ -75,14 +86,17 @@ public class BuildingsPaneController {
         shipyardBuyButton.setOnAction(event -> game.getColony().setShipyard((Shipyard) upgrade(game.getColony().getShipyard())));
         shipyardLabel.textProperty().bind(game.getColony().getShipyard().getLevelProperty());
     }
+    private void initializeLaboratory() {
+        laboratoryCostLabel.textProperty().bind(game.getColony().getLaboratory().getCostProperty());
+        laboratoryBuyButton.setOnAction(event -> game.getColony().setLaboratory((Laboratory) upgrade(game.getColony().getLaboratory())));
+        laboratoryLabel.textProperty().bind(game.getColony().getLaboratory().getLevelProperty());
+    }
 
     private Building upgrade(Building building) {
-        if (building.upgradeMetalCost() <= game.getColony().getMetal() && building.upgradeAlloysCost() <= game.getColony().getAlloys()) {
+        if (building.canAffordUpgrade(game.getColony().getMetal(), game.getColony().getAlloys())) {
 
-            game.getColony().setMetal(game.getColony().getMetal() - building.upgradeMetalCost());
-            game.getColony().getMetalProperty().set("METAL - " + game.getColony().getMetal().toString());
-            game.getColony().setAlloys(game.getColony().getAlloys() - building.upgradeAlloysCost());
-            game.getColony().getAlloysProperty().set("ALLOYS - " + game.getColony().getAlloys().toString());
+            game.getColony().payMetal(building.upgradeMetalCost());
+            game.getColony().payAlloys(building.upgradeAlloysCost());
             building.upgrade();
         }
         return building;

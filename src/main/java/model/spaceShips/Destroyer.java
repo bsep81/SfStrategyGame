@@ -7,7 +7,7 @@ public class Destroyer implements SpaceShip {
 
     private SpaceShipBaseParameters baseParameters;
     private Integer hullPoints;
-    private final Integer PRODUCTION_POINTS = 60;
+    private static final Integer PRODUCTION_POINTS = 60;
     public static final Integer METAL_COST = 60000;
     public static final Integer ALLOYS_COST = 15000;
 

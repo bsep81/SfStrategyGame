@@ -6,8 +6,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import lombok.Data;
 import model.buildings.Alloyworks;
+import model.buildings.Laboratory;
 import model.buildings.MetalMine;
 import model.buildings.Shipyard;
+import model.technologies.HullTechnology;
+import model.technologies.ShieldTechnology;
+import model.technologies.Technologies;
 
 import java.util.ArrayList;
 
@@ -24,15 +28,22 @@ public class Game {
     private IntegerProperty turnProperty = new SimpleIntegerProperty();
 
     private final Colony colony = Colony.builder()
-            .metal(1500)
-            .alloys(500)
-            .metalProperty(new SimpleStringProperty("METAL - 1500"))
-            .alloysProperty(new SimpleStringProperty("ALLOYS - 500"))
+            .metal(1500000)
+            .alloys(500000)
+            .metalProperty(new SimpleStringProperty("METAL - 1500000"))
+            .alloysProperty(new SimpleStringProperty("ALLOYS - 500000"))
             .metalMine(new MetalMine(500, 0))
             .alloyworks(new Alloyworks(1000, 500))
             .shipyard(new Shipyard(5000, 5000))
+            .laboratory(new Laboratory(10000, 10000))
             .spaceShips(new ArrayList<>())
             .build();
+
+    private final Technologies technologies = Technologies.builder()
+            .hullTechnology(new HullTechnology(5000, 0))
+            .shieldTechnology(new ShieldTechnology(2500, 5000))
+            .build();
+
 
 
 }

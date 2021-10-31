@@ -1,25 +1,13 @@
 package model.buildings;
 
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import model.UpgradableFeature;
 
 
-@RequiredArgsConstructor
-@Data
-public abstract class Building {
-
-    protected int level = 0;
-    protected final int INITIAL_METAL_COST;
-    protected final int INITIAL_ALLOYS_COST;
+public abstract class Building extends UpgradableFeature {
 
 
-    public int upgradeMetalCost(){
-        return (int) (INITIAL_METAL_COST * Math.pow(2, level));
+    protected Building(int initialMetelCost, int initialAlloysCost) {
+        super(initialMetelCost, initialAlloysCost);
     }
-    public int upgradeAlloysCost(){
-        return (int) (INITIAL_ALLOYS_COST * Math.pow(2, level));
-    }
-    public abstract void upgrade();
-
 }

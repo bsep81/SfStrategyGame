@@ -7,7 +7,7 @@ public class Bomber implements SpaceShip {
 
     private SpaceShipBaseParameters baseParameters;
     private Integer hullPoints;
-    private final Integer PRODUCTION_POINTS = 75;
+    private static final Integer PRODUCTION_POINTS = 75;
     public static final Integer METAL_COST = 85000;
     public static final Integer ALLOYS_COST = 30000;
 
