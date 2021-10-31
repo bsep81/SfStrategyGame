@@ -37,6 +37,9 @@ public class BuildingsPaneController {
     private Label alloyworksCostLabel;
 
     @FXML
+    private Label shipyardCostLabel;
+
+    @FXML
     private Label shipyardLabel;
 
     @FXML
@@ -79,7 +82,7 @@ public class BuildingsPaneController {
     }
 
     private void initializeShipyard() {
-        laboratoryCostLabel.textProperty().bind(game.getColony().getShipyard().getCostProperty());
+        shipyardCostLabel.textProperty().bind(game.getColony().getShipyard().getCostProperty());
         shipyardBuyButton.setOnAction(event -> game.getColony().setShipyard((Shipyard) upgrade(game.getColony().getShipyard())));
         shipyardLabel.textProperty().bind(game.getColony().getShipyard().getLevelProperty());
     }
@@ -90,12 +93,10 @@ public class BuildingsPaneController {
     }
 
     private Building upgrade(Building building) {
-        if (building.upgradeMetalCost() <= game.getColony().getMetal() && building.upgradeAlloysCost() <= game.getColony().getAlloys()) {
+        if (building.canAffordUpgrade(game.getColony().getMetal(), game.getColony().getAlloys())) {
 
-            game.getColony().setMetal(game.getColony().getMetal() - building.upgradeMetalCost());
-            game.getColony().getMetalProperty().set("METAL - " + game.getColony().getMetal().toString());
-            game.getColony().setAlloys(game.getColony().getAlloys() - building.upgradeAlloysCost());
-            game.getColony().getAlloysProperty().set("ALLOYS - " + game.getColony().getAlloys().toString());
+            game.getColony().payMetal(building.upgradeMetalCost());
+            game.getColony().payAlloys(building.upgradeAlloysCost());
             building.upgrade();
         }
         return building;

@@ -27,7 +27,7 @@
          <children>
             <Label fx:id="shipyardLabel" alignment="CENTER" prefHeight="102.0" prefWidth="142.0" text="SHIPYARD level 0" />
             <Button fx:id="shipyardBuyButton" mnemonicParsing="false" prefHeight="104.0" prefWidth="141.0" text="BUY" />
-            <Label fx:id="shipyardCostLabel" alignment="CENTER" prefHeight="99.0" prefWidth="243.0" text="Cost: 5000 metal, 5000 alloys" />
+            <Label fx:id="shipyardCostLabel" alignment="CENTER" prefHeight="99.0" prefWidth="243.0" text="Cost: 10000 metal, 10000 alloys" />
             <Label fx:id="shipyardDescriptionLabel" alignment="CENTER" prefHeight="100.0" prefWidth="238.0" text="Shipyard produces space ships" />
          </children>
       </HBox>
