@@ -9,7 +9,10 @@ import model.buildings.Alloyworks;
 import model.buildings.Laboratory;
 import model.buildings.MetalMine;
 import model.buildings.Shipyard;
+import model.technologies.AlloysTechnology;
+import model.technologies.AttackTechnology;
 import model.technologies.HullTechnology;
+import model.technologies.MiningTechnology;
 import model.technologies.ShieldTechnology;
 import model.technologies.Technologies;
 
@@ -42,6 +45,9 @@ public class Game {
     private final Technologies technologies = Technologies.builder()
             .hullTechnology(new HullTechnology(5000, 0))
             .shieldTechnology(new ShieldTechnology(2500, 5000))
+            .attackTechnology(new AttackTechnology(7500, 2500))
+            .miningTechnology(new MiningTechnology(10000, 20000))
+            .alloysTechnology(new AlloysTechnology(20000, 10000))
             .build();
 
 

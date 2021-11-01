@@ -9,4 +9,7 @@ public class Technologies {
 
     private HullTechnology hullTechnology;
     private ShieldTechnology shieldTechnology;
+    private AttackTechnology attackTechnology;
+    private MiningTechnology miningTechnology;
+    private AlloysTechnology alloysTechnology;
 }
