@@ -10,14 +10,14 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode(callSuper = true)
 @ToString
-public class HullTechnology extends Technology{
+public class AttackTechnology extends Technology{
 
-    public static final String DESCRIPTION = "Every level of hull technology increases hull strength of your space ships by 10%";
-    private SimpleStringProperty levelProperty = new SimpleStringProperty("HULL TECHNOLOGY level " + level);
+    public static final String DESCRIPTION = "Every level of attack technology increases attack power of your space ships by 10%";
+    private SimpleStringProperty levelProperty = new SimpleStringProperty("ATTACK TECHNOLOGY level " + level);
     private SimpleStringProperty costProperty = new SimpleStringProperty("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
 
 
-    public HullTechnology(int initialMetalCost, int initialAlloysCost) {
+    public AttackTechnology(int initialMetalCost, int initialAlloysCost) {
         super(initialMetalCost, initialAlloysCost);
     }
 
@@ -28,9 +28,9 @@ public class HullTechnology extends Technology{
 
     @Override
     public void upgrade() {
-            level++;
-            levelProperty.set("HULL TECHNOLOGY level " + level);
-            costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
+        level++;
+        levelProperty.set("ATTACK TECHNOLOGY level " + level);
+        costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
 
     }
 }
