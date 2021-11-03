@@ -1,21 +1,36 @@
 package model.spaceShips;
 
 import lombok.Data;
+import model.Game;
+import model.technologies.Technologies;
 
 @Data
 public class SpaceShipBaseParameters {
 
     private SpaceShipType type;
-    private Integer hullPoints;
-    private Integer shieldPoints;
-    private Integer attackPower;
+    private Integer baseHullPoints;
+    private Integer baseShieldPoints;
+    private Integer baseAttackPower;
+    private Game game = Game.getInstance();
 
 
 
-    public SpaceShipBaseParameters(SpaceShipType spaceShipType, Integer hullPoints, Integer shieldPoints, Integer attackPower) {
+    public SpaceShipBaseParameters(SpaceShipType spaceShipType, Integer baseHullPoints, Integer baseShieldPoints, Integer baseAttackPower) {
         this.type = spaceShipType;
-        this.hullPoints = hullPoints;
-        this.shieldPoints = shieldPoints;
-        this.attackPower = attackPower;
+        this.baseHullPoints = baseHullPoints;
+        this.baseShieldPoints = baseShieldPoints;
+        this.baseAttackPower = baseAttackPower;
+    }
+
+    public int getHullPoints(Technologies technologies){
+        return (int) (baseHullPoints * technologies.getHullTechnology().getModifier());
+    }
+
+    public int getShieldPoints(Technologies technologies){
+        return (int) (baseShieldPoints * technologies.getShieldTechnology().getModifier());
+    }
+
+    public int getAttackPower(Technologies technologies){
+        return (int) (baseAttackPower * technologies.getAttackTechnology().getModifier());
     }
 }

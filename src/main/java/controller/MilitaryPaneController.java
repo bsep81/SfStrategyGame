@@ -36,6 +36,9 @@ public class MilitaryPaneController {
     private RadioButton bomberRadio;
 
     @FXML
+    private TextArea spaceShipInfoTextArea;
+
+    @FXML
     private Button addProductionButton;
 
     @FXML
@@ -43,9 +46,18 @@ public class MilitaryPaneController {
 
     private final Game game = Game.getInstance();
 
+
     @FXML
     void initialize() {
         figterRadio.setSelected(true);
+        spaceShipInfoTextArea.setText(game.getColony().getShipyard().getFactory().createFighter().getInfo(game.getTechnologies()));
+
+        figterRadio.setOnAction(event -> spaceShipInfoTextArea.setText(game.getColony().getShipyard().getFactory().createFighter().getInfo(game.getTechnologies())));
+        cruiserRadio.setOnAction(event -> spaceShipInfoTextArea.setText(game.getColony().getShipyard().getFactory().createCruiser().getInfo(game.getTechnologies())));
+        destroyerRadio.setOnAction(event -> spaceShipInfoTextArea.setText(game.getColony().getShipyard().getFactory().createDestroyer().getInfo(game.getTechnologies())));
+        bomberRadio.setOnAction(event -> spaceShipInfoTextArea.setText(game.getColony().getShipyard().getFactory().createBomber().getInfo(game.getTechnologies())));
+
+
         fleetInfoTextArea.setText(game.getColony().getFleetInfo());
 
         game.getTurnProperty()
@@ -114,15 +126,10 @@ public class MilitaryPaneController {
         ObservableList<String> productionList = FXCollections.observableArrayList();
 
         game.getColony().getShipyard().getSpaceShipsProductionQueue()
-                .forEach(spaceShip ->  productionList.add(spaceShip.getClass().getName().substring(17)));
+                .forEach(spaceShip -> productionList.add(spaceShip.getClass().getName().substring(17)));
 
         return productionList;
     }
-
-
-
-
-
 
 
 }

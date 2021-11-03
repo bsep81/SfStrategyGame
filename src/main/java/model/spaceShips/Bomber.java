@@ -1,32 +1,43 @@
 package model.spaceShips;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import model.technologies.Technologies;
 
-@Data
-public class Bomber implements SpaceShip {
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
+@ToString
+public class Bomber extends SpaceShip {
 
-    private SpaceShipBaseParameters baseParameters;
-    private Integer hullPoints;
+
+    private Integer currentHullPoints;
     private static final Integer PRODUCTION_POINTS = 75;
     public static final Integer METAL_COST = 85000;
     public static final Integer ALLOYS_COST = 30000;
 
     public Bomber(SpaceShipBaseParameters baseParameters) {
-        this.baseParameters = baseParameters;
-    }
+        super(baseParameters);
 
-    @Override
-    public Integer getFirePower() {
-        return null;
-    }
-
-    @Override
-    public Integer getShield() {
-        return null;
     }
 
     @Override
     public Integer getProductionPoints() {
         return PRODUCTION_POINTS;
     }
+
+    @Override
+    public String getInfo(Technologies technologies) {
+        return "BOMBER" +
+                "\n\n hull - " +
+                getMaxHull(technologies) +
+                "\n\nshield - " +
+                getShield(technologies) +
+                "\n\nattack - " +
+                getFirePower(technologies);
+    }
+
+
 }
