@@ -11,5 +11,6 @@ module SfStrategyGame {
     opens controller to javafx.fxml;
 
 
+
 }
 

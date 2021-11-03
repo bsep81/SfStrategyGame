@@ -1,10 +1,34 @@
 package model.spaceShips;
 
-public interface SpaceShip {
+import lombok.Data;
+import model.technologies.Technologies;
 
-    Integer getFirePower();
-    Integer getShield();
-    Integer getProductionPoints();
+@Data
+public abstract class SpaceShip {
+
+    protected SpaceShipBaseParameters baseParameters;
+
+    protected SpaceShip(SpaceShipBaseParameters baseParameters) {
+        this.baseParameters = baseParameters;
+    }
+
+    public Integer getFirePower(Technologies technologies) {
+        return baseParameters.getAttackPower(technologies);
+    }
+
+    public Integer getShield(Technologies technologies) {
+        return baseParameters.getShieldPoints(technologies);
+    }
+
+    public Integer getMaxHull(Technologies technologies) {
+        return this.baseParameters.getHullPoints(technologies);
+    }
+
+    public abstract Integer getProductionPoints();
+
+    public abstract String getInfo(Technologies technologies);
+
+
 
 
 }

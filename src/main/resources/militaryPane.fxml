@@ -12,55 +12,63 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MilitaryPaneController">
-   <children>
-      <Label prefHeight="40.0" prefWidth="273.0" text="SPACESHIPS PRODUCTION" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Label>
-      <HBox alignment="CENTER" prefHeight="130.0" prefWidth="718.0">
-         <children>
-            <ListView fx:id="productionListView" prefHeight="200.0" prefWidth="200.0" />
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <RadioButton fx:id="figterRadio" mnemonicParsing="false" prefHeight="29.0" prefWidth="87.0" text="FIGHTER">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="production" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="cruiserRadio" mnemonicParsing="false" prefHeight="35.0" prefWidth="87.0" text="CRUISER" toggleGroup="$production" />
-                  <RadioButton fx:id="destroyerRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="87.0" text="DESTROYER" toggleGroup="$production" />
-                  <RadioButton fx:id="bomberRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" text="BOMBER" toggleGroup="$production" />
-               </children>
-            </VBox>
-            <Button fx:id="addProductionButton" alignment="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="87.0" text="Add to production list" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
-      <Separator prefWidth="200.0">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </VBox.margin>
-      </Separator>
-      <Label text="FLEET">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-      <TextArea fx:id="fleetInfoTextArea" prefHeight="200.0" prefWidth="200.0">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextArea>
-   </children>
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="602.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.MilitaryPaneController">
    <opaqueInsets>
-      <Insets />
+      <Insets/>
    </opaqueInsets>
+   <Label prefHeight="40.0" prefWidth="273.0" text="SPACESHIPS PRODUCTION" textAlignment="JUSTIFY"
+          textOverrun="CENTER_ELLIPSIS">
+      <font>
+         <Font name="System Bold" size="21.0"/>
+      </font>
+   </Label>
+   <HBox alignment="CENTER" prefHeight="130.0" prefWidth="718.0">
+      <ListView fx:id="productionListView" prefHeight="200.0" prefWidth="200.0"/>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <RadioButton fx:id="figterRadio" mnemonicParsing="false" prefHeight="29.0" prefWidth="87.0"
+                      text="FIGHTER">
+            <toggleGroup>
+               <ToggleGroup fx:id="production"/>
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton fx:id="cruiserRadio" mnemonicParsing="false" prefHeight="35.0" prefWidth="87.0"
+                      text="CRUISER" toggleGroup="$production"/>
+         <RadioButton fx:id="destroyerRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                      prefHeight="34.0" prefWidth="87.0" text="DESTROYER" toggleGroup="$production"/>
+         <RadioButton fx:id="bomberRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0"
+                      prefWidth="87.0" text="BOMBER" toggleGroup="$production"/>
+      </VBox>
+      <TextArea fx:id="spaceShipInfoTextArea" prefHeight="200.0" prefWidth="200.0">
+         <HBox.margin>
+            <Insets right="10.0"/>
+         </HBox.margin>
+      </TextArea>
+      <Button fx:id="addProductionButton" alignment="CENTER" mnemonicParsing="false" prefHeight="111.0"
+              prefWidth="87.0" text="Add to production list" textAlignment="CENTER" textOverrun="CLIP"
+              wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0"/>
+         </font>
+      </Button>
+   </HBox>
+   <Separator prefWidth="200.0">
+      <opaqueInsets>
+         <Insets/>
+      </opaqueInsets>
+      <VBox.margin>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+      </VBox.margin>
+   </Separator>
+   <Label text="FLEET">
+      <font>
+         <Font name="System Bold" size="22.0"/>
+      </font>
+   </Label>
+   <TextArea fx:id="fleetInfoTextArea" prefHeight="200.0" prefWidth="200.0">
+      <font>
+         <Font size="15.0"/>
+      </font>
+   </TextArea>
 </VBox>
