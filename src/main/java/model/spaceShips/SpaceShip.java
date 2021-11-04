@@ -6,6 +6,9 @@ import model.technologies.Technologies;
 @Data
 public abstract class SpaceShip {
 
+    protected Integer currentHullPoints;
+    protected Integer currentShieldPoints;
+
     protected SpaceShipBaseParameters baseParameters;
 
     protected SpaceShip(SpaceShipBaseParameters baseParameters) {
@@ -27,6 +30,8 @@ public abstract class SpaceShip {
     public abstract Integer getProductionPoints();
 
     public abstract String getInfo(Technologies technologies);
+
+    public abstract SpaceShip attack(SpaceShip target);
 
 
 

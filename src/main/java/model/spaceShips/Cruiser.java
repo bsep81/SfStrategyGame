@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import model.Game;
 import model.technologies.Technologies;
 
 @Getter
@@ -12,10 +13,10 @@ import model.technologies.Technologies;
 @ToString
 public class Cruiser extends SpaceShip {
 
-    private Integer hullPoints;
     private static final Integer PRODUCTION_POINTS = 27;
     public static final Integer METAL_COST = 20000;
     public static final Integer ALLOYS_COST = 7000;
+    private Game game = Game.getInstance();
 
     public Cruiser(SpaceShipBaseParameters baseParameters) {
         super(baseParameters);
@@ -36,6 +37,21 @@ public class Cruiser extends SpaceShip {
                 getShield(technologies) +
                 "\n\nattack - " +
                 getFirePower(technologies);
+    }
+
+    @Override
+    public SpaceShip attack(SpaceShip target) {
+
+        int damage = getFirePower(game.getTechnologies());
+
+        if(damage <= currentShieldPoints){
+            currentShieldPoints -= damage;
+        }else{
+            currentHullPoints -= damage - currentShieldPoints;
+            currentShieldPoints = 0;
+        }
+
+        return target;
     }
 
 
