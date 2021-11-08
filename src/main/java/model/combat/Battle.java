@@ -2,30 +2,43 @@ package model.combat;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import model.Game;
 import model.spaceShips.SpaceShip;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Data
 @RequiredArgsConstructor
 public class Battle {
 
-    private final List<SpaceShip> attackingFleet;
-    private final List<SpaceShip> defendingFleet;
+    private final Fleet attackingFleet;
+    private final Fleet defendingFleet;
     private Random random = new Random();
     private int roundCounter = 0;
-    private Game game = Game.getInstance();
 
 
     public String startCombat() {
         StringBuilder battleRaport = new StringBuilder();
+        prepareShips();
 
-        while (!attackingFleet.isEmpty() && !defendingFleet.isEmpty()) {
+        while (!attackingFleet.getSpaceShips().isEmpty() && !defendingFleet.getSpaceShips().isEmpty()) {
             battleRaport.append(runNextRound());
+        }
 
+        if(attackingFleet.getSpaceShips().isEmpty()){
+            battleRaport.append("Defender won with ")
+                    .append(defendingFleet.getSpaceShips().size())
+                    .append(" ships left");
+        }else if(defendingFleet.getSpaceShips().isEmpty()){
+            battleRaport.append("Atacker won with ")
+                    .append(attackingFleet.getSpaceShips().size())
+                    .append(" ships left");
+        }else{
+            battleRaport.append("Atacker - ")
+                    .append(attackingFleet.getSpaceShips().size())
+                    .append("\nDeffender - ")
+                    .append(defendingFleet.getSpaceShips().size());
         }
 
         return battleRaport.toString();
@@ -34,6 +47,7 @@ public class Battle {
 
     private String runNextRound() {
 
+
         resetShields();
 
 
@@ -41,61 +55,68 @@ public class Battle {
         roundRaport.append("ROUND ")
                 .append(++roundCounter);
 
+        int defendingFleetSize = defendingFleet.getSpaceShips().size();
+        int attackingFleetSize = attackingFleet.getSpaceShips().size();
 
-        int fleetSize = defendingFleet.size();
-        for (SpaceShip atacker : attackingFleet) {
-            int shipIndex = random.nextInt(fleetSize);
+        for (SpaceShip atacker : attackingFleet.getSpaceShips()) {
+            int shipIndex = random.nextInt(defendingFleetSize);
 
-            defendingFleet.get(shipIndex)
-                    .setCurrentHullPoints(atacker.attack(defendingFleet.get(shipIndex)).getCurrentHullPoints());
+            defendingFleet.getSpaceShips().get(shipIndex)
+                    .setCurrentHullPoints(atacker.attack(defendingFleet.getSpaceShips().get(shipIndex), attackingFleet.getTechnologies()).getCurrentHullPoints());
+        }
 
+
+        for (SpaceShip deffender : defendingFleet.getSpaceShips()) {
+            int shipIndex = random.nextInt(attackingFleetSize);
+
+            attackingFleet.getSpaceShips().get(shipIndex)
+                    .setCurrentHullPoints(deffender.attack(attackingFleet.getSpaceShips().get(shipIndex), defendingFleet.getTechnologies()).getCurrentHullPoints());
         }
 
         roundRaport.append("\n\nAtacker shot ")
-                .append(attackingFleet.size())
+                .append(attackingFleetSize)
                 .append(" times, destroying ")
-                .append(getDestroyedSpaceships(defendingFleet))
-                .append(" ships.\n");
-
-        fleetSize = attackingFleet.size();
-        for (SpaceShip deffender : defendingFleet) {
-            int shipIndex = random.nextInt(fleetSize);
-
-            attackingFleet.get(shipIndex)
-                    .setCurrentHullPoints(deffender.attack(attackingFleet.get(shipIndex)).getCurrentHullPoints());
-        }
-
-        roundRaport.append("Deffender shot ")
-                .append(defendingFleet.size())
+                .append(getDestroyedSpaceshipsCount(defendingFleet.getSpaceShips()))
+                .append(" ships.\n")
+                .append("Deffender shot ")
+                .append(defendingFleetSize)
                 .append(" times, destroying ")
-                .append(getDestroyedSpaceships(attackingFleet))
+                .append(getDestroyedSpaceshipsCount(attackingFleet.getSpaceShips()))
                 .append(" ships.\n\n");
 
-        attackingFleet.removeAll(getDestroyedSpaceships(attackingFleet));
-        defendingFleet.removeAll(getDestroyedSpaceships(defendingFleet));
 
+        attackingFleet.setSpaceShips(attackingFleet.getSpaceShips().stream().filter(spaceShip -> spaceShip.getCurrentHullPoints() > 0).collect(Collectors.toList()));
+        defendingFleet.setSpaceShips(defendingFleet.getSpaceShips().stream().filter(spaceShip -> spaceShip.getCurrentHullPoints() > 0).collect(Collectors.toList()));
 
         return roundRaport.toString();
     }
 
 
-    private List<SpaceShip> getDestroyedSpaceships(List<SpaceShip> fleet) {
-        List<SpaceShip> destroyedSpaceships = new ArrayList<>();
+    private int getDestroyedSpaceshipsCount(List<SpaceShip> fleet) {
+        int destroyedSpaceshipsCount = 0;
         for (SpaceShip spaceShip : fleet) {
             if (spaceShip.getCurrentHullPoints() <= 0) {
-                destroyedSpaceships.add(spaceShip);
+                destroyedSpaceshipsCount++;
             }
         }
+        return destroyedSpaceshipsCount;
+    }
 
-        return destroyedSpaceships;
+    private void prepareShips() {
+        for (SpaceShip spaceShip : attackingFleet.getSpaceShips()) {
+            spaceShip.setCurrentHullPoints(spaceShip.getMaxHull(attackingFleet.getTechnologies()));
+        }
+        for (SpaceShip spaceShip : defendingFleet.getSpaceShips()) {
+            spaceShip.setCurrentHullPoints(spaceShip.getMaxHull(defendingFleet.getTechnologies()));
+        }
     }
 
     private void resetShields() {
-        for(SpaceShip spaceShip: attackingFleet){
-            spaceShip.setCurrentShieldPoints(spaceShip.getShield(Game.getInstance().getTechnologies()));
+        for (SpaceShip spaceShip : attackingFleet.getSpaceShips()) {
+            spaceShip.setCurrentShieldPoints(spaceShip.getShield(attackingFleet.getTechnologies()));
         }
-        for(SpaceShip spaceShip: defendingFleet){
-            spaceShip.setCurrentShieldPoints(spaceShip.getShield(Game.getInstance().getTechnologies()));
+        for (SpaceShip spaceShip : defendingFleet.getSpaceShips()) {
+            spaceShip.setCurrentShieldPoints(spaceShip.getShield(defendingFleet.getTechnologies()));
         }
     }
 

@@ -1,7 +1,6 @@
 package model.spaceShips;
 
 import lombok.Data;
-import model.Game;
 import model.technologies.Technologies;
 
 @Data
@@ -11,7 +10,6 @@ public class SpaceShipBaseParameters {
     private Integer baseHullPoints;
     private Integer baseShieldPoints;
     private Integer baseAttackPower;
-    private Game game = Game.getInstance();
 
 
 

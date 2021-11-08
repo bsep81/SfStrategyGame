@@ -18,8 +18,8 @@ public class Cruiser extends SpaceShip {
     public static final Integer ALLOYS_COST = 7000;
     private Game game = Game.getInstance();
 
-    public Cruiser(SpaceShipBaseParameters baseParameters) {
-        super(baseParameters);
+    public Cruiser(SpaceShipBaseParameters baseParameters, String serialNumber) {
+        super(baseParameters, serialNumber);
 
     }
 
@@ -40,15 +40,18 @@ public class Cruiser extends SpaceShip {
     }
 
     @Override
-    public SpaceShip attack(SpaceShip target) {
+    public SpaceShip attack(SpaceShip target, Technologies technologies) {
 
-        int damage = getFirePower(game.getTechnologies());
+        int damage = getFirePower(technologies);
 
-        if(damage <= currentShieldPoints){
-            currentShieldPoints -= damage;
+        if(damage <= target.currentShieldPoints){
+            target.currentShieldPoints -= damage;
+            if(target.currentShieldPoints < 0){
+                target.currentShieldPoints = 0;
+            }
         }else{
-            currentHullPoints -= damage - currentShieldPoints;
-            currentShieldPoints = 0;
+            target.currentHullPoints -= damage - target.currentShieldPoints;
+            target.currentShieldPoints = 0;
         }
 
         return target;

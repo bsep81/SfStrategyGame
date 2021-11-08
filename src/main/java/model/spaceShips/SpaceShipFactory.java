@@ -4,6 +4,13 @@ import java.util.List;
 
 public class SpaceShipFactory {
 
+    private int figterConter = 0;
+    private int cruiserConter = 0;
+    private int destroyerConter = 0;
+    private int bomberConter = 0;
+    private String serialNumber;
+
+
     private static final List<SpaceShipBaseParameters> SPACE_SHIP_BASE_PARAMETERS = List.of(
             new SpaceShipBaseParameters(SpaceShipType.FIGHTER, 50, 10, 40),
             new SpaceShipBaseParameters(SpaceShipType.CRUISER, 200, 20, 70),
@@ -19,19 +26,27 @@ public class SpaceShipFactory {
     }
 
     public SpaceShip createFighter(){
-        return new Fighter(findParametersByKey(SpaceShipType.FIGHTER));
+        figterConter++;
+        serialNumber = "FTR" + figterConter;
+        return new Fighter(findParametersByKey(SpaceShipType.FIGHTER), serialNumber);
     }
 
     public SpaceShip createCruiser(){
-        return new Cruiser(findParametersByKey(SpaceShipType.CRUISER));
+        cruiserConter++;
+        serialNumber = "CRU" + cruiserConter;
+        return new Cruiser(findParametersByKey(SpaceShipType.CRUISER),serialNumber);
     }
 
     public SpaceShip createDestroyer(){
-        return new Destroyer(findParametersByKey(SpaceShipType.DESTROYER));
+        destroyerConter++;
+        serialNumber = "DST" + destroyerConter;
+        return new Destroyer(findParametersByKey(SpaceShipType.DESTROYER), serialNumber);
     }
 
     public SpaceShip createBomber(){
-        return new Bomber(findParametersByKey(SpaceShipType.BOMBER));
+        bomberConter++;
+        serialNumber = "BMB" + bomberConter;
+        return new Bomber(findParametersByKey(SpaceShipType.BOMBER), serialNumber);
     }
 
 

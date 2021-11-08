@@ -19,8 +19,8 @@ public class Bomber extends SpaceShip {
     public static final Integer ALLOYS_COST = 30000;
     private Game game = Game.getInstance();
 
-    public Bomber(SpaceShipBaseParameters baseParameters) {
-        super(baseParameters);
+    public Bomber(SpaceShipBaseParameters baseParameters, String serialNumber) {
+        super(baseParameters, serialNumber);
 
     }
 
@@ -41,18 +41,21 @@ public class Bomber extends SpaceShip {
     }
 
     @Override
-    public SpaceShip attack(SpaceShip target) {
+    public SpaceShip attack(SpaceShip target, Technologies technologies) {
         double damageMultiplier = 1;
         if(target.getClass().equals(Fighter.class)){
             damageMultiplier = 0.5;
         }
-        int damage = (int)(damageMultiplier * getFirePower(game.getTechnologies()));
+        int damage = (int)(damageMultiplier * getFirePower(technologies));
 
-        if(damage <= currentShieldPoints){
-            currentShieldPoints -= damage;
+        if(damage <= target.currentShieldPoints){
+            target.currentShieldPoints -= damage;
+            if(target.currentShieldPoints < 0){
+                target.currentShieldPoints = 0;
+            }
         }else{
-            currentHullPoints -= damage - currentShieldPoints;
-            currentShieldPoints = 0;
+            target.currentHullPoints -= damage - target.currentShieldPoints;
+            target.currentShieldPoints = 0;
         }
 
         return target;
