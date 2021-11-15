@@ -1,7 +1,10 @@
 package model.combat;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import model.Game;
 import model.spaceShips.SpaceShip;
 
 import java.util.List;
@@ -16,6 +19,7 @@ public class Battle {
     private final Fleet defendingFleet;
     private Random random = new Random();
     private int roundCounter = 0;
+    private Game game = Game.getInstance();
 
 
     public String startCombat() {
@@ -40,6 +44,16 @@ public class Battle {
                     .append("\nDeffender - ")
                     .append(defendingFleet.getSpaceShips().size());
         }
+
+        if(defendingFleet.getSpaceShips().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.NONE, "Your fleet was destroyed.\n You managed to escape and found a place for a new colony.", ButtonType.OK);
+            alert.showAndWait();
+            game.setColony(game.resetColony());
+
+        }
+
+        game.getColony().setSpaceShips(defendingFleet.getSpaceShips());
+
 
         return battleRaport.toString();
     }

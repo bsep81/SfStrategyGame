@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import model.Game;
 
 
 @Getter
@@ -29,7 +30,7 @@ public class Alloyworks extends Building implements ResourceBuilding {
         if(level == 0) {
             return 0;
         }
-        return (int) (BASE_PRODUCTION * Math.pow(1.5, level));
+        return (int) (BASE_PRODUCTION * Math.pow(1.5, level) * Game.getInstance().getTechnologies().getAlloysTechnology().getModifier());
     }
 
     @Override

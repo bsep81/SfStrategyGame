@@ -12,6 +12,8 @@ public abstract class UpgradableFeature {
     protected final int INITIAL_ALLOYS_COST;
     protected Game game = Game.getInstance();
 
+
+
     public int upgradeMetalCost(){
         return (int) (INITIAL_METAL_COST * Math.pow(2, level));
     }

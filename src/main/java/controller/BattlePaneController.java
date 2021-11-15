@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.VBox;
 import model.combat.Battle;
 import model.combat.Fleet;
 import model.spaceShips.SpaceShip;
@@ -18,6 +19,7 @@ import java.util.Random;
 
 public class BattlePaneController {
 
+
     @FXML
     private Button startCombatButton;
 
@@ -27,10 +29,17 @@ public class BattlePaneController {
 
 
 
+
+
     @FXML
     void initialize() {
         startCombatButton.setOnAction(event -> startBattle());
+        ControllerMediator.getInstance().registerBattleController(this);
 
+    }
+
+    public void booom(Battle battle){
+        battleRaportTextArea.setText(battle.startCombat());
     }
 
     private void startBattle() {
@@ -84,11 +93,8 @@ public class BattlePaneController {
         Battle battle = new Battle(atkFleet, defFleet);
 
 
-        String aaa = battle.startCombat();
-        battleRaportTextArea.setText(aaa);
-        System.out.println(aaa);
 
-
+        battleRaportTextArea.setText(battle.startCombat());
 
     }
 }

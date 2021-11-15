@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import model.Game;
 
 @Getter
 @Setter
@@ -12,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class AlloysTechnology extends Technology{
 
-    public static final String DESCRIPTION = "Every level of alloys technology increases metal mine production";
+    public static final String DESCRIPTION = "Every level of alloys technology increases alloyworks production";
     private SimpleStringProperty levelProperty = new SimpleStringProperty("ALLOYS TECHNOLOGY level " + level);
     private SimpleStringProperty costProperty = new SimpleStringProperty("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
 
@@ -31,5 +32,6 @@ public class AlloysTechnology extends Technology{
         level++;
         levelProperty.set("ALLOYS TECHNOLOGY level " + level);
         costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
+        Game.getInstance().getColony().getAlloyworks().getProductionProperty().set("Alloys production: " + Game.getInstance().getColony().getAlloyworks().currentProduction());
     }
 }

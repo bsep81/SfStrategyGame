@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import model.Game;
 
 @Getter
 @Setter
@@ -31,5 +32,6 @@ public class MiningTechnology extends Technology{
         level++;
         levelProperty.set("MINING TECHNOLOGY level " + level);
         costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
+        Game.getInstance().getColony().getMetalMine().getProductionProperty().set("Metal production: " + Game.getInstance().getColony().getMetalMine().currentProduction());
     }
 }

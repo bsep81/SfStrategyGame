@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import model.Game;
 
 @Getter
 @Setter
@@ -27,7 +28,7 @@ public class MetalMine extends Building implements ResourceBuilding {
         if(level == 0) {
             return 0;
         }
-        return (int) (BASE_PRODUCTION * Math.pow(1.6, level));
+        return (int) (BASE_PRODUCTION * Math.pow(1.6, level) * Game.getInstance().getTechnologies().getMiningTechnology().getModifier());
     }
 
 
