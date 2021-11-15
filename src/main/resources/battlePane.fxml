@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BattlePaneController">
+<VBox fx:id="battlePaneController" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BattlePaneController">
    <Button fx:id="startCombatButton" mnemonicParsing="false" prefHeight="93.0" prefWidth="138.0" text="Start combat" />
    <TextArea fx:id="battleRaportTextArea" prefHeight="327.0" prefWidth="559.0" />
 </VBox>
