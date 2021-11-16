@@ -24,7 +24,7 @@ public class AlloysTechnology extends Technology{
 
     @Override
     public double getModifier() {
-        return Math.pow(1.1, level);
+        return Math.pow(1.16, level);
     }
 
     @Override

@@ -5,47 +5,60 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TechnologyController">
-   <children>
-      <HBox prefHeight="84.0" prefWidth="745.0">
-         <children>
-            <Label fx:id="hullLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0" text="HULL TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="hullTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0" text="UPGRADE" />
-            <Label fx:id="hullTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0" text="Cost: 1000 metal" />
-            <Label fx:id="hullTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0" text="Every level of hull technology increases hull strength of your space ships by 10%" textAlignment="CENTER" wrapText="true" />
-         </children>
-      </HBox>
-      <HBox layoutX="10.0" layoutY="10.0" prefHeight="84.0" prefWidth="745.0">
-         <children>
-            <Label fx:id="shieldLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0" text="SHIELD TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="shieldTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0" text="UPGRADE" />
-            <Label fx:id="shieldTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0" text="Cost: 1000 metal, 1000 alloys" />
-            <Label fx:id="shieldTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0" text="Every level of shield technology increases shield power of your space ships by 10%" textAlignment="CENTER" wrapText="true" />
-         </children>
-      </HBox>
-      <HBox layoutX="10.0" layoutY="94.0" prefHeight="84.0" prefWidth="745.0">
-         <children>
-            <Label fx:id="attackLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0" text="ATTACK TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="attackTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0" text="UPGRADE" />
-            <Label fx:id="attackTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0" text="Cost: 1000 metal, 500 alloys" />
-            <Label fx:id="attackTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0" text="Every level of attack technology increases shield power of your space ships by 10%" textAlignment="CENTER" wrapText="true" />
-         </children>
-      </HBox>
-      <HBox layoutX="10.0" layoutY="178.0" prefHeight="84.0" prefWidth="745.0">
-         <children>
-            <Label fx:id="miningLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0" text="MINING TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="miningTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0" text="UPGRADE" />
-            <Label fx:id="miningTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0" text="Cost: 5000 metal, 10000 alloys" />
-            <Label fx:id="miningTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0" text="Mining technology increases production of  metal mine " textAlignment="CENTER" wrapText="true" />
-         </children>
-      </HBox>
-      <HBox layoutX="10.0" layoutY="262.0" prefHeight="84.0" prefWidth="745.0">
-         <children>
-            <Label fx:id="alloysLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0" text="ALLOYS TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="alloysTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0" text="UPGRADE" />
-            <Label fx:id="alloysTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0" text="Cost: 10000 metal, 5000 alloys" />
-            <Label fx:id="alloysTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0" text="Alloys technology increases production of  metal mine " textAlignment="CENTER" wrapText="true" />
-         </children>
-      </HBox>
-   </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0"
+      prefWidth="745.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.TechnologyPaneController">
+   <HBox prefHeight="84.0" prefWidth="745.0">
+      <Label fx:id="hullLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0"
+             text="HULL TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true"/>
+      <Button fx:id="hullTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0"
+              text="UPGRADE"/>
+      <Label fx:id="hullTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0"
+             text="Cost: 1000 metal"/>
+      <Label fx:id="hullTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0"
+             text="Every level of hull technology increases hull strength of your space ships by 10%"
+             textAlignment="CENTER" wrapText="true"/>
+   </HBox>
+   <HBox layoutX="10.0" layoutY="10.0" prefHeight="84.0" prefWidth="745.0">
+      <Label fx:id="shieldLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0"
+             text="SHIELD TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true"/>
+      <Button fx:id="shieldTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0"
+              text="UPGRADE"/>
+      <Label fx:id="shieldTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0"
+             text="Cost: 1000 metal, 1000 alloys"/>
+      <Label fx:id="shieldTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0"
+             text="Every level of shield technology increases shield power of your space ships by 10%"
+             textAlignment="CENTER" wrapText="true"/>
+   </HBox>
+   <HBox layoutX="10.0" layoutY="94.0" prefHeight="84.0" prefWidth="745.0">
+      <Label fx:id="attackLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0"
+             text="ATTACK TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true"/>
+      <Button fx:id="attackTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0"
+              text="UPGRADE"/>
+      <Label fx:id="attackTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0"
+             text="Cost: 1000 metal, 500 alloys"/>
+      <Label fx:id="attackTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0"
+             text="Every level of attack technology increases shield power of your space ships by 10%"
+             textAlignment="CENTER" wrapText="true"/>
+   </HBox>
+   <HBox layoutX="10.0" layoutY="178.0" prefHeight="84.0" prefWidth="745.0">
+      <Label fx:id="miningLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0"
+             text="MINING TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true"/>
+      <Button fx:id="miningTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0"
+              text="UPGRADE"/>
+      <Label fx:id="miningTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0"
+             text="Cost: 5000 metal, 10000 alloys"/>
+      <Label fx:id="miningTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0"
+             text="Mining technology increases production of  metal mine " textAlignment="CENTER" wrapText="true"/>
+   </HBox>
+   <HBox layoutX="10.0" layoutY="262.0" prefHeight="84.0" prefWidth="745.0">
+      <Label fx:id="alloysLabel" alignment="CENTER" prefHeight="100.0" prefWidth="130.0"
+             text="ALLOYS TECHNOLOGY level 0 " textAlignment="CENTER" wrapText="true"/>
+      <Button fx:id="alloysTechnologyUpgradeButton" mnemonicParsing="false" prefHeight="106.0" prefWidth="141.0"
+              text="UPGRADE"/>
+      <Label fx:id="alloysTechnologyCostLabel" alignment="CENTER" prefHeight="102.0" prefWidth="243.0"
+             text="Cost: 10000 metal, 5000 alloys"/>
+      <Label fx:id="alloysTechnologyDescriptionLabel" alignment="CENTER" prefHeight="102.0" prefWidth="238.0"
+             text="Alloys technology increases production of  metal mine " textAlignment="CENTER" wrapText="true"/>
+   </HBox>
 </VBox>

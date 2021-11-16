@@ -39,7 +39,7 @@ public class BattleCreator {
 
         List<SpaceShip> spaceShips = new ArrayList<>();
         for (int i = 1; i <= turn; i++) {
-            if(i % 10 == 0){
+            if(i % 6 == 0){
                 spaceShips.add(factory.createFighter());
             }
             if(i % 66 == 0){

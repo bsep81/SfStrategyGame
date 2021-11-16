@@ -11,7 +11,7 @@ import model.technologies.MiningTechnology;
 import model.technologies.ShieldTechnology;
 import model.technologies.Technology;
 
-public class TechnologyController {
+public class TechnologyPaneController {
 
     @FXML
     private Label hullLabel;
@@ -77,6 +77,8 @@ public class TechnologyController {
 
     @FXML
     void initialize() {
+
+        ControllerMediator.getInstance().registerTechnologyController(this);
         initializeHullTechnology();
         initializeShieldTechnology();
         initializeAttackTechnology();
