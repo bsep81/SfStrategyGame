@@ -22,6 +22,9 @@ public class MainPaneController {
     private Label alloysLabel;
 
     @FXML
+    private Label turnLabel;
+
+    @FXML
     private Button nextTurnButton;
 
     @FXML
@@ -48,6 +51,7 @@ public class MainPaneController {
     private void initializeOthers() {
         alloysLabel.textProperty().bind(game.getColony().getAlloysProperty());
         metalLabel.textProperty().bind(game.getColony().getMetalProperty());
+        turnLabel.textProperty().bind(game.getTurnProperty());
     }
 
     private void nextTurn() {
@@ -59,9 +63,9 @@ public class MainPaneController {
 
         }
         game.setTurn(game.getTurn() + 1 );
-        game.getTurnProperty().set(game.getTurn());
+        game.getTurnProperty().set("TURN - " + game.getTurn());
 
-        if(game.getTurn() % 10 == 0){
+        if(game.getTurn() % 100 == 0){
             mainTabPane.getSelectionModel().select(battleTab);
             Fleet defendingFleet = new Fleet(game.getColony().getSpaceShips(), game.getTechnologies());
             BattleCreator creator = new BattleCreator(game.getTurn(), defendingFleet);

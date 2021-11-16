@@ -1,5 +1,6 @@
 package model.combat;
 
+import controller.ControllerMediator;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import lombok.Data;
@@ -46,9 +47,11 @@ public class Battle {
         }
 
         if(defendingFleet.getSpaceShips().isEmpty()){
+            game.setColony(game.resetColony());
+            ControllerMediator.getInstance().buildingsControllerInitialize();
+            ControllerMediator.getInstance().mainControllerInitialize();
             Alert alert = new Alert(Alert.AlertType.NONE, "Your fleet was destroyed.\n You managed to escape and found a place for a new colony.", ButtonType.OK);
             alert.showAndWait();
-            game.setColony(game.resetColony());
 
         }
 

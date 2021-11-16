@@ -59,6 +59,7 @@ public class BuildingsPaneController {
     @FXML
     void initialize() {
 
+        ControllerMediator.getInstance().registerBuildingController(this);
         initializeMetalMine();
         initializeAlloyworks();
         initializeShipyard();
@@ -101,6 +102,8 @@ public class BuildingsPaneController {
         }
         return building;
     }
+
+
 
 
 }

@@ -6,6 +6,10 @@ public class ControllerMediator implements Mediator{
 
     private MainPaneController mainPaneController;
     private BattlePaneController battlePaneController;
+    private BuildingsPaneController buildingsPaneController;
+    private MilitaryPaneController militaryPaneController;
+    private TechnologyPaneController technologyPaneController;
+
 
     private static final ControllerMediator INSTANCE = new ControllerMediator();
 
@@ -26,8 +30,33 @@ public class ControllerMediator implements Mediator{
     }
 
     @Override
-    public void battleControllerAction(Battle battle) {
-        battlePaneController.booom(battle);
+    public void registerBuildingController(BuildingsPaneController controller) {
+        buildingsPaneController = controller;
+    }
 
+    @Override
+    public void registerMilitaryController(MilitaryPaneController controller) {
+        militaryPaneController = controller;
+    }
+
+    @Override
+    public void registerTechnologyController(TechnologyPaneController controller) {
+        technologyPaneController = controller;
+    }
+
+    @Override
+    public void battleControllerAction(Battle battle) {
+        battlePaneController.startBattle(battle);
+
+    }
+
+    @Override
+    public void buildingsControllerInitialize() {
+        buildingsPaneController.initialize();
+    }
+
+    @Override
+    public void mainControllerInitialize() {
+        mainPaneController.initialize();
     }
 }

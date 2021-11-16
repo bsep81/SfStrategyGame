@@ -1,9 +1,8 @@
 package model;
 
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import lombok.Data;
 import model.buildings.Alloyworks;
 import model.buildings.Laboratory;
@@ -28,8 +27,8 @@ public class Game {
         return INSTANCE;
     }
 
-    private Integer turn = 0;
-    private IntegerProperty turnProperty = new SimpleIntegerProperty();
+    private Integer turn = 1;
+    private StringProperty turnProperty = new SimpleStringProperty("TURN - 1");
 
     private Colony colony = resetColony();
 
@@ -43,11 +42,13 @@ public class Game {
 
     public Colony resetColony(){
 
+        turn = 1;
+
         return Colony.builder()
-                .metal(1500000)
-                .alloys(500000)
-                .metalProperty(new SimpleStringProperty("METAL - 1500000"))
-                .alloysProperty(new SimpleStringProperty("ALLOYS - 500000"))
+                .metal(1500)
+                .alloys(500)
+                .metalProperty(new SimpleStringProperty("METAL - 1500"))
+                .alloysProperty(new SimpleStringProperty("ALLOYS - 500"))
                 .metalMine(new MetalMine(500, 0))
                 .alloyworks(new Alloyworks(1000, 500))
                 .shipyard(new Shipyard(5000, 5000))

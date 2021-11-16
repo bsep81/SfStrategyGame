@@ -49,6 +49,8 @@ public class MilitaryPaneController {
 
     @FXML
     void initialize() {
+        ControllerMediator.getInstance().registerMilitaryController(this);
+
         figterRadio.setSelected(true);
         spaceShipInfoTextArea.setText(game.getColony().getShipyard().getFactory().createFighter().getInfo(game.getTechnologies()));
 
