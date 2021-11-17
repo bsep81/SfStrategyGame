@@ -23,7 +23,5 @@ b
 2src/main/java/model/technologies/Technologies.java,7\6\76fed3e63c94f936e2db3e10f73276eb1b93e0de
 `
 0src/main/java/model/technologies/Technology.java,8\7\87cc11f72069f15eb50fe6fc0996173a08024e4d
-U
-%src/main/java/model/combat/Fleet.java,2\1\2178d2259411500346f730332ed06bac77539a70
 d
 4src/main/java/model/spaceShips/SpaceShipFactory.java,b\2\b209c9397631151597b1691d14087569b6455c4b
