@@ -31,11 +31,15 @@ public class Destroyer extends SpaceShip {
     @Override
     public String getInfo(Technologies technologies) {
         return "DESTROYER" +
+                "\nMetal - " +
+                METAL_COST +
+                "\nAlloys - " +
+                ALLOYS_COST +
                 "\n\n hull - " +
                 getMaxHull(technologies) +
-                "\n\nshield - " +
+                "\nshield - " +
                 getShield(technologies) +
-                "\n\nattack - " +
+                "\nattack - " +
                 getFirePower(technologies);
     }
 
