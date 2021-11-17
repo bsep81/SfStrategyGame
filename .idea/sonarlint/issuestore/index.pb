@@ -15,18 +15,6 @@ f
 6src/main/java/model/technologies/AttackTechnology.java,3\6\366f3773408914993117618b8559689576e29ac1
 [
 +src/main/java/model/buildings/Shipyard.java,9\d\9dc89abc2797f792425afaa0c2e15bdf69726ae7
-[
-+src/main/java/model/buildings/Building.java,d\a\da676e7996a470cabe5cb3671e00ddc76b1cf42e
-Z
-*src/main/java/model/spaceShips/Bomber.java,1\8\18afe29a28a9a9b61af847dbb4d146ddd149e4cf
-[
-+src/main/java/model/spaceShips/Cruiser.java,c\2\c27088ec18f3f93f48aaba4ca5f8df8d48c4ab00
-]
--src/main/java/model/spaceShips/Destroyer.java,0\b\0bb0024a47f31ba9ea9f0388dd4dc636a52f548b
-[
-+src/main/java/model/spaceShips/Fighter.java,c\7\c72ac5c9c79a241331d7f7b68e9b1758067a3138
-]
--src/main/java/model/spaceShips/SpaceShip.java,5\5\55ad261ea74fbbf5e5274ab93eac8ff6c3f2d11d
 k
 ;src/main/java/model/spaceShips/SpaceShipBaseParameters.java,8\d\8dd09a41f12c4c96e41edd2be3745e35f432c701
 S
@@ -35,7 +23,5 @@ b
 2src/main/java/model/technologies/Technologies.java,7\6\76fed3e63c94f936e2db3e10f73276eb1b93e0de
 `
 0src/main/java/model/technologies/Technology.java,8\7\87cc11f72069f15eb50fe6fc0996173a08024e4d
-U
-%src/main/java/model/combat/Fleet.java,2\1\2178d2259411500346f730332ed06bac77539a70
 d
 4src/main/java/model/spaceShips/SpaceShipFactory.java,b\2\b209c9397631151597b1691d14087569b6455c4b
