@@ -7,12 +7,6 @@ h
 -src/main/java/model/buildings/Laboratory.java,c\c\ccd2d9834bc343487008bcef5e04224fbedc432c
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
-d
-4src/main/java/model/technologies/HullTechnology.java,a\8\a8b9af72d6d7cac73123fabad5ae671d1ff10807
-f
-6src/main/java/model/technologies/ShieldTechnology.java,f\9\f983f41903f7a37f494d359aa52a5978c5d0b346
-f
-6src/main/java/model/technologies/AttackTechnology.java,3\6\366f3773408914993117618b8559689576e29ac1
 [
 +src/main/java/model/buildings/Shipyard.java,9\d\9dc89abc2797f792425afaa0c2e15bdf69726ae7
 k
@@ -21,7 +15,5 @@ S
 #src/test/java/model/ColonyTest.java,7\c\7c3a318d754392ed00dd482e8d2dbff4a1b7cfb8
 b
 2src/main/java/model/technologies/Technologies.java,7\6\76fed3e63c94f936e2db3e10f73276eb1b93e0de
-`
-0src/main/java/model/technologies/Technology.java,8\7\87cc11f72069f15eb50fe6fc0996173a08024e4d
 d
 4src/main/java/model/spaceShips/SpaceShipFactory.java,b\2\b209c9397631151597b1691d14087569b6455c4b
