@@ -1,5 +1,6 @@
 package controller;
 
+import com.fasterxml.jackson.databind.SerializationFeature;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,6 +10,13 @@ import model.buildings.Building;
 import model.buildings.Laboratory;
 import model.buildings.MetalMine;
 import model.buildings.Shipyard;
+
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
 
 public class BuildingsPaneController {
 
@@ -53,6 +61,8 @@ public class BuildingsPaneController {
 
     @FXML
     private Button laboratoryBuyButton;
+
+    private ObjectMapper mapper = new ObjectMapper();
 
     private final Game game = Game.getInstance();
 
@@ -99,6 +109,10 @@ public class BuildingsPaneController {
             game.getColony().payMetal(building.upgradeMetalCost());
             game.getColony().payAlloys(building.upgradeAlloysCost());
             building.upgrade();
+
+
+
+
         }
         return building;
     }
