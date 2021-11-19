@@ -64,6 +64,7 @@ public class MainPaneController {
         }
         game.setTurn(game.getTurn() + 1 );
         game.getTurnProperty().set("TURN - " + game.getTurn());
+        ControllerMediator.getInstance().battleControllerUpdateLabel(100 - (game.getTurn() % 100));
 
         if(game.getTurn() % 100 == 0){
             mainTabPane.getSelectionModel().select(battleTab);

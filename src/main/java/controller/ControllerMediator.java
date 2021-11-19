@@ -47,7 +47,11 @@ public class ControllerMediator implements Mediator{
     @Override
     public void battleControllerAction(Battle battle) {
         battlePaneController.startBattle(battle);
+    }
 
+    @Override
+    public void battleControllerUpdateLabel(int turnsToBattle) {
+        battlePaneController.updateLabel(turnsToBattle);
     }
 
     @Override
