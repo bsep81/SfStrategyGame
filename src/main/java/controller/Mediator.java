@@ -9,6 +9,7 @@ public interface Mediator {
     void registerMilitaryController(MilitaryPaneController controller);
     void registerTechnologyController(TechnologyPaneController controller);
     void battleControllerAction(Battle battle);
+    void battleControllerUpdateLabel(int turnsToBattle);
     void buildingsControllerInitialize();
     void mainControllerInitialize();
 
