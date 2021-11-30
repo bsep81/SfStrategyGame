@@ -27,6 +27,7 @@ public class Laboratory extends Building{
 
     }
 
+    @Override
     public void updateProperties() {
         levelProperty.set("Laboratory level " + level);
         costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");

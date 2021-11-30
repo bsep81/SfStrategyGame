@@ -1,12 +1,9 @@
 package service.gameSaving;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.spaceShips.SpaceShip;
 
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -22,10 +19,15 @@ public class GamePOJO {
     private int alloyworksLevel;
     private int shipyardLevel;
     private int laboratoryLevel;
-    private List<SpaceShip> spaceShips;
+    private long fightersCount;
+    private long cruisersCount;
+    private long destroyersCount;
+    private long bombersCount;
     private int hullTechnologyLevel;
     private int shieldTechnologyLevel;
     private int attackTechnologyLevel;
     private int miningTechnologyLevel;
     private int alloysTechnologyLevel;
+
+    //TODO: Spaceship production queue
 }

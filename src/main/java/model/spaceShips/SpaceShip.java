@@ -8,13 +8,11 @@ public abstract class SpaceShip {
 
     protected Integer currentHullPoints;
     protected Integer currentShieldPoints;
-    protected String serialNumber;
 
     protected SpaceShipBaseParameters baseParameters;
 
-    protected SpaceShip(SpaceShipBaseParameters baseParameters, String serialNumber) {
+    protected SpaceShip(SpaceShipBaseParameters baseParameters) {
         this.baseParameters = baseParameters;
-        this.serialNumber = serialNumber;
     }
 
     public Integer getFirePower(Technologies technologies) {

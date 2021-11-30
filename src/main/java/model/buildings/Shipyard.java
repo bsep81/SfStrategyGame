@@ -44,6 +44,7 @@ public class Shipyard extends Building implements ManufacturingBuilding {
 
     }
 
+    @Override
     public void updateProperties() {
         levelProperty.set("Shipyard level " + level);
         costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");

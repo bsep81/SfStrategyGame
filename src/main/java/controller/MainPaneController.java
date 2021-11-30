@@ -10,7 +10,6 @@ import model.combat.Battle;
 import model.combat.BattleCreator;
 import model.combat.Fleet;
 import model.spaceShips.SpaceShip;
-import service.gameSaving.GameLoader;
 import service.gameSaving.GameSaver;
 
 import java.util.List;
@@ -36,21 +35,15 @@ public class MainPaneController {
     private TabPane mainTabPane;
 
     private final GameSaver gameSaver = new GameSaver();
-    private final GameLoader loader = new GameLoader();
 
     private final Game game = Game.getInstance();
 
 
-
-
     @FXML
-    void initialize(){
-        loader.loadGame();
-
+    void initialize() {
 
         nextTurnButton.setOnAction(event -> nextTurn());
         ControllerMediator.getInstance().registerMainController(this);
-
         initializeOthers();
 
     }
@@ -70,11 +63,11 @@ public class MainPaneController {
             game.getColony().getSpaceShips().addAll(producedSpaceShips);
 
         }
-        game.setTurn(game.getTurn() + 1 );
+        game.setTurn(game.getTurn() + 1);
         game.getTurnProperty().set("TURN - " + game.getTurn());
         ControllerMediator.getInstance().battleControllerUpdateLabel(100 - (game.getTurn() % 100));
 
-        if(game.getTurn() % 100 == 0){
+        if (game.getTurn() % 100 == 0) {
             mainTabPane.getSelectionModel().select(battleTab);
             Fleet defendingFleet = new Fleet(game.getColony().getSpaceShips(), game.getTechnologies());
             BattleCreator creator = new BattleCreator(game.getTurn(), defendingFleet);
@@ -84,7 +77,5 @@ public class MainPaneController {
         gameSaver.saveGame();
     }
 
-    private void updateLabels(){
 
-    }
 }

@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import model.Game;
 import model.technologies.Technologies;
 
 @Getter
@@ -17,10 +16,9 @@ public class Bomber extends SpaceShip {
     private static final Integer PRODUCTION_POINTS = 75;
     public static final Integer METAL_COST = 85000;
     public static final Integer ALLOYS_COST = 30000;
-    private Game game = Game.getInstance();
 
-    public Bomber(SpaceShipBaseParameters baseParameters, String serialNumber) {
-        super(baseParameters, serialNumber);
+    public Bomber(SpaceShipBaseParameters baseParameters) {
+        super(baseParameters);
 
     }
 
