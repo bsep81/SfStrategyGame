@@ -42,7 +42,7 @@ public class Game {
 
     public Colony resetColony(){
 
-        turn = 1;
+        setTurn(1);
 
         return Colony.builder()
                 .metal(1500)
@@ -55,6 +55,11 @@ public class Game {
                 .laboratory(new Laboratory(10000, 10000))
                 .spaceShips(new ArrayList<>())
                 .build();
+    }
+
+    public void setTurn(int newTurn){
+        turn = newTurn;
+        turnProperty.set("TURN - " + turn);
     }
 
 

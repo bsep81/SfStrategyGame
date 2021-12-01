@@ -42,8 +42,15 @@ public class Alloyworks extends Building implements ResourceBuilding {
     @Override
     public void upgrade() {
         level++;
+        updateProperties();
+    }
+
+    @Override
+    public void updateProperties() {
         levelProperty.set("Alloyworks level " + level);
         costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
         productionProperty.set("Alloys production: " + currentProduction());
     }
+
+
 }

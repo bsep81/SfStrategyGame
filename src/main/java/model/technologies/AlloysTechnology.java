@@ -30,6 +30,11 @@ public class AlloysTechnology extends Technology{
     @Override
     public void upgrade() {
         level++;
+        updateProperties();
+    }
+
+    @Override
+    public void updateProperties() {
         levelProperty.set("ALLOYS TECHNOLOGY level " + level);
         costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
         Game.getInstance().getColony().getAlloyworks().getProductionProperty().set("Alloys production: " + Game.getInstance().getColony().getAlloyworks().currentProduction());

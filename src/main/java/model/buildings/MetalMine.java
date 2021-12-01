@@ -42,6 +42,11 @@ public class MetalMine extends Building implements ResourceBuilding {
     @Override
     public void upgrade() {
         level++;
+        updateProperties();
+    }
+
+    @Override
+    public void updateProperties() {
         levelProperty.set("Metal mine level " + level);
         costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
         productionProperty.set("Metal production: " + currentProduction());

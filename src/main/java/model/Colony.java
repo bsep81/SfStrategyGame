@@ -49,8 +49,18 @@ public class Colony {
         setAlloysProperty();
     }
 
+    public void setMetal(int metalValue){
+        metal = metalValue;
+        setMetalProperty();
+    }
+
     public void setMetalProperty() {
         metalProperty.set("METAL - " + metal.toString());
+    }
+
+    public void setAlloys(int alloysValue){
+        alloys = alloysValue;
+        setAlloysProperty();
     }
 
     public void setAlloysProperty() {

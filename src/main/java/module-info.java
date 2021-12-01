@@ -13,9 +13,10 @@ module SfStrategyGame {
     exports model to com.fasterxml.jackson.databind;
     exports model.technologies to com.fasterxml.jackson.databind;
     exports model.buildings to com.fasterxml.jackson.databind;
+    exports model.spaceShips;
 
     opens controller to javafx.fxml;
-
+    exports service.gameSaving to com.fasterxml.jackson.databind;
 
 
 }

@@ -26,5 +26,11 @@ public abstract class UpgradableFeature {
         return upgradeMetalCost() <= metal && upgradeAlloysCost() <= alloys;
     }
 
+    public void setLevel(int newLevel){
+        level = newLevel;
+        updateProperties();
+    }
+
     public abstract void upgrade();
+    public abstract void updateProperties();
 }
