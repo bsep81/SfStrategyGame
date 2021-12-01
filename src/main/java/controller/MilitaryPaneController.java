@@ -62,6 +62,8 @@ public class MilitaryPaneController {
 
         fleetInfoTextArea.setText(game.getColony().getFleetInfo());
 
+        productionListView.setItems(getProductionList());
+
         game.getTurnProperty()
                 .addListener((observable, oldValue, newValue) -> {
                     productionListView.setItems(getProductionList());

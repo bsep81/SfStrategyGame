@@ -79,7 +79,6 @@ public class Shipyard extends Building implements ManufacturingBuilding {
                 productionProgress += productionPointsLeft;
                 productionPointsLeft = 0;
             }
-
         }
 
         return producedShips;

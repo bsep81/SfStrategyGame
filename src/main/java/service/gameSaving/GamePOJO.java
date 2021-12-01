@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Queue;
+
 
 @Data
 @NoArgsConstructor
@@ -28,6 +30,8 @@ public class GamePOJO {
     private int attackTechnologyLevel;
     private int miningTechnologyLevel;
     private int alloysTechnologyLevel;
+    private Queue<Character> spaceShipsProductionQueue;
+    private Character currentProduction;
+    private Integer productionProgress;
 
-    //TODO: Spaceship production queue
 }

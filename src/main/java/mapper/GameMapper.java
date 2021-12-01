@@ -10,7 +10,9 @@ import model.spaceShips.SpaceShipFactory;
 import service.gameSaving.GamePOJO;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class GameMapper {
 
@@ -35,6 +37,9 @@ public class GameMapper {
         gamePOJO.setAttackTechnologyLevel(game.getTechnologies().getAttackTechnology().getLevel());
         gamePOJO.setMiningTechnologyLevel(game.getTechnologies().getMiningTechnology().getLevel());
         gamePOJO.setAlloysTechnologyLevel(game.getTechnologies().getAlloysTechnology().getLevel());
+        gamePOJO.setSpaceShipsProductionQueue(spaceShipQueueToCharacterQueue(game.getColony().getShipyard().getSpaceShipsProductionQueue()));
+        gamePOJO.setCurrentProduction(spaceShipToCharacter(game.getColony().getShipyard().getCurrentProduction()));
+        gamePOJO.setProductionProgress(game.getColony().getShipyard().getProductionProgress());
 
         return gamePOJO;
     }
@@ -53,6 +58,9 @@ public class GameMapper {
         game.getTechnologies().getAttackTechnology().setLevel(gamePOJO.getAttackTechnologyLevel());
         game.getTechnologies().getMiningTechnology().setLevel(gamePOJO.getMiningTechnologyLevel());
         game.getTechnologies().getAlloysTechnology().setLevel(gamePOJO.getAlloysTechnologyLevel());
+        game.getColony().getShipyard().setSpaceShipsProductionQueue(characterQueueToSpaceShipQueue(gamePOJO.getSpaceShipsProductionQueue()));
+        game.getColony().getShipyard().setCurrentProduction(characterToSpaceShip(gamePOJO.getCurrentProduction()));
+        game.getColony().getShipyard().setProductionProgress(gamePOJO.getProductionProgress());
     }
 
     private List<SpaceShip> mapSpaceShips(GamePOJO gamePOJO){
@@ -77,4 +85,42 @@ public class GameMapper {
 
         return spaceShips;
     }
+
+    private Character spaceShipToCharacter(SpaceShip spaceShip){
+        if(spaceShip != null){
+            return spaceShip.getClass().getSimpleName().charAt(0);
+        }
+        return null;
+    }
+
+    private Queue<Character> spaceShipQueueToCharacterQueue(Queue<SpaceShip> spaceShips){
+        Queue<Character> characters = new LinkedList<>();
+        spaceShips.forEach(spaceShip -> characters.add(spaceShipToCharacter(spaceShip)));
+        return characters;
+    }
+
+    private SpaceShip characterToSpaceShip(Character character){
+        SpaceShipFactory factory = new SpaceShipFactory();
+        if(character == null){
+            return null;
+        }
+        return switch (character) {
+            case 'F' -> factory.createFighter();
+            case 'C' -> factory.createCruiser();
+            case 'D' -> factory.createDestroyer();
+            case 'B' -> factory.createBomber();
+            default -> throw new IllegalStateException("Unexpected value: " + character);
+        };
+    }
+
+    private Queue<SpaceShip> characterQueueToSpaceShipQueue(Queue<Character> characters){
+        Queue<SpaceShip> spaceShips = new LinkedList<>();
+        if(characters == null){
+            return null;
+        }
+        characters.forEach(character -> spaceShips.add(characterToSpaceShip(character)));
+        return spaceShips;
+    }
+
+
 }
