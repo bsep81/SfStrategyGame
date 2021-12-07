@@ -2,9 +2,6 @@ package model.buildings;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class LaboratoryTest {
@@ -28,7 +25,7 @@ class LaboratoryTest {
     }
 
     @Test
-    void shouldIncrementMetalMineLevelAndSetProperties(){
+    void shouldIncrementLaboratoryLevelAndSetProperties(){
         laboratory.setLevel(4);
         laboratory.upgrade();
 
