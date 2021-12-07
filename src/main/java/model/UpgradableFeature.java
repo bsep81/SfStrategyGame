@@ -10,7 +10,6 @@ public abstract class UpgradableFeature {
     protected int level = 0;
     protected final int INITIAL_METAL_COST;
     protected final int INITIAL_ALLOYS_COST;
-    protected Game game = Game.getInstance();
 
 
 
