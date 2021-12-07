@@ -34,7 +34,7 @@ public class ShieldTechnology extends Technology{
 
     @Override
     public void updateProperties() {
-        levelProperty.set("Shield technology level " + level);
+        levelProperty.set("SHIELD TECHNOLOGY level " + level);
         costProperty.set("Upgrade cost: " + upgradeMetalCost() + " metal, " + upgradeAlloysCost() + " alloys");
     }
 }
