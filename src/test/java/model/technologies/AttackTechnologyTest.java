@@ -26,7 +26,7 @@ class AttackTechnologyTest {
     }
 
     @Test
-    void shouldIncrementAlloysTechnologyLevelAndSetProperties(){
+    void shouldIncrementAttackTechnologyLevelAndSetProperties(){
         attackTechnology.setLevel(4);
         attackTechnology.upgrade();
 
