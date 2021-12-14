@@ -33,7 +33,15 @@ public abstract class SpaceShip {
 
     public abstract SpaceShip attack(SpaceShip target, Technologies technologies);
 
+    protected static SpaceShip dealDamage(SpaceShip target, int damage) {
+        if(damage <= target.currentShieldPoints){
+            target.currentShieldPoints -= damage;
+        }else{
+            target.currentHullPoints -= damage - target.currentShieldPoints;
+            target.currentShieldPoints = 0;
+        }
 
-
+        return target;
+    }
 
 }
