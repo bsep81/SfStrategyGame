@@ -44,7 +44,4 @@ public abstract class SpaceShip {
         return target;
     }
 
-
-
-
 }
