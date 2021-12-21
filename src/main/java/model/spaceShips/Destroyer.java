@@ -49,17 +49,7 @@ public class Destroyer extends SpaceShip {
         }
         int damage = (int)(damageMultiplier * getFirePower(technologies));
 
-        if(damage <= target.currentShieldPoints){
-            target.currentShieldPoints -= damage;
-            if(target.currentShieldPoints < 0){
-                target.currentShieldPoints = 0;
-            }
-        }else{
-            target.currentHullPoints -= damage - target.currentShieldPoints;
-            target.currentShieldPoints = 0;
-        }
-
-        return target;
+        return dealDamage(target, damage);
     }
 
 }

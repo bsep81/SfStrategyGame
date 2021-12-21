@@ -44,19 +44,7 @@ public class Cruiser extends SpaceShip {
     @Override
     public SpaceShip attack(SpaceShip target, Technologies technologies) {
 
-        int damage = getFirePower(technologies);
-
-        if(damage <= target.currentShieldPoints){
-            target.currentShieldPoints -= damage;
-            if(target.currentShieldPoints < 0){
-                target.currentShieldPoints = 0;
-            }
-        }else{
-            target.currentHullPoints -= damage - target.currentShieldPoints;
-            target.currentShieldPoints = 0;
-        }
-
-        return target;
+        return dealDamage(target, getFirePower(technologies));
     }
 
 
