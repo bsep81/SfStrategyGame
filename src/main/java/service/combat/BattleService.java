@@ -13,9 +13,6 @@ public class BattleService {
 
 
 
-
-
-
     public int getDestroyedSpaceshipsCount(List<SpaceShip> fleet) {
         int destroyedSpaceshipsCount = 0;
         for (SpaceShip spaceShip : fleet) {
