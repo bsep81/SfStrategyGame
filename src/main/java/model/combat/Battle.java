@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import model.Game;
 import service.combat.BattleService;
 
+import java.util.Random;
+
 
 @Data
 @RequiredArgsConstructor
@@ -19,7 +21,7 @@ public class Battle {
 
     private Game game = Game.getInstance();
     private BattleService battleService = new BattleService();
-    private BattleRound battleRound = new BattleRound();
+    private BattleRound battleRound = new BattleRound(new Random());
 
 
     public String startCombat() {
@@ -37,13 +39,13 @@ public class Battle {
                     .append(defendingFleet.getSpaceShips().size())
                     .append(" ships left");
         }else if(defendingFleet.getSpaceShips().isEmpty()){
-            battleRaport.append("Atacker won with ")
+            battleRaport.append("Attacker won with ")
                     .append(attackingFleet.getSpaceShips().size())
                     .append(" ships left");
         }else{
-            battleRaport.append("Atacker - ")
+            battleRaport.append("Attacker - ")
                     .append(attackingFleet.getSpaceShips().size())
-                    .append("\nDeffender - ")
+                    .append("\nDefender - ")
                     .append(defendingFleet.getSpaceShips().size());
         }
 

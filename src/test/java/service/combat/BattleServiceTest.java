@@ -87,10 +87,10 @@ class BattleServiceTest {
     }
 
     @Test
-    void shouldPrepareFormatedInfoAboutBothFleets(){
+    void shouldPrepareFormattedInfoAboutBothFleets(){
         String result = battleService.getFleetsInfo(attackingFleet, defendingFleet);
 
-        String info = "Atacker\t\t\t\t\tDeffender\n3\t\tFIGHTER\t\t\t1\n0\t\tCRUISER\t\t\t1\n0\t\tDESTROYER\t\t1\n0\t\tBOMBER\t\t\t1\n";
+        String info = "Attacker\t\t\t\t\tDefender\n3\t\tFIGHTER\t\t\t1\n0\t\tCRUISER\t\t\t1\n0\t\tDESTROYER\t\t1\n0\t\tBOMBER\t\t\t1\n";
 
         assertThat(result).isEqualTo(info);
 

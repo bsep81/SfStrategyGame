@@ -55,7 +55,7 @@ public class BattleService {
         long defendingBomberCount = defendingFleet.getSpaceShips().stream().filter(spaceShip -> spaceShip.getClass().equals(Bomber.class)).count();
 
 
-        info.append("Atacker\t\t\t\t\tDeffender\n")
+        info.append("Attacker\t\t\t\t\tDefender\n")
                 .append(atackingFighterCount)
                 .append("\t\tFIGHTER\t\t\t")
                 .append(defendingFighterCount)

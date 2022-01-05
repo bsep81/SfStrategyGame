@@ -9,10 +9,12 @@ import java.util.stream.Collectors;
 public class BattleRound {
 
     private int roundCounter = 0;
-    private Random random = new Random();
-    private BattleService battleService = new BattleService();
+    private final Random random;
+    private final BattleService battleService = new BattleService();
 
-
+    public BattleRound(Random random) {
+        this.random = random;
+    }
 
     public String runNextRound(Fleet attackingFleet, Fleet defendingFleet) {
 
@@ -42,12 +44,12 @@ public class BattleRound {
                     .setCurrentHullPoints(deffender.attack(attackingFleet.getSpaceShips().get(shipIndex), defendingFleet.getTechnologies()).getCurrentHullPoints());
         }
 
-        roundRaport.append("\n\nAtacker shot ")
+        roundRaport.append("\n\nAttacker shot ")
                 .append(attackingFleetSize)
                 .append(" times, destroying ")
                 .append(battleService.getDestroyedSpaceshipsCount(defendingFleet.getSpaceShips()))
                 .append(" ships.\n")
-                .append("Deffender shot ")
+                .append("Defender shot ")
                 .append(defendingFleetSize)
                 .append(" times, destroying ")
                 .append(battleService.getDestroyedSpaceshipsCount(attackingFleet.getSpaceShips()))
