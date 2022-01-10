@@ -115,10 +115,10 @@ public class GameMapper {
 
     private Queue<SpaceShip> characterQueueToSpaceShipQueue(Queue<Character> characters){
         Queue<SpaceShip> spaceShips = new LinkedList<>();
-        if(characters == null){
-            return null;
+        if(characters != null){
+            characters.forEach(character -> spaceShips.add(characterToSpaceShip(character)));
         }
-        characters.forEach(character -> spaceShips.add(characterToSpaceShip(character)));
+
         return spaceShips;
     }
 

@@ -11,8 +11,8 @@ import java.io.IOException;
 
 public class GameSaver {
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-    private GameMapper gameMapper = new GameMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final GameMapper gameMapper = new GameMapper();
 
     public void saveGame() {
         String gameJson = "";

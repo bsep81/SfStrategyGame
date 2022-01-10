@@ -78,13 +78,11 @@ public class TechnologyPaneController {
     @FXML
     void initialize() {
 
-        ControllerMediator.getInstance().registerTechnologyController(this);
         initializeHullTechnology();
         initializeShieldTechnology();
         initializeAttackTechnology();
         initializeMiningTechnology();
         initializeAlloysTechnology();
-
 
     }
 

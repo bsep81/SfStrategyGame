@@ -19,7 +19,6 @@ public class Main extends Application {
         loader.loadGame();
 
 
-
         Pane mainPane = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/mainPane.fxml")));
         Scene scene = new Scene(mainPane);
         primaryStage.setScene(scene);
