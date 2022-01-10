@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import mapper.GameMapper;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -15,11 +14,10 @@ public class GameLoader {
     private final GameMapper gameMapper = new GameMapper();
 
 
-    public void loadGame(){
+    public void loadGame() {
 
-        File saveGameFile = new File("save.dat");
         String gameJson = "";
-        try(BufferedReader reader = new BufferedReader(new FileReader(saveGameFile))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("save.dat"))) {
             gameJson = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
