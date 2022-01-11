@@ -11,11 +11,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class BomberTest {
 
-    SpaceShipFactory factory = new SpaceShipFactory();
+    private final SpaceShipFactory factory = new SpaceShipFactory();
 
-    SpaceShip bomber = factory.createBomber();
+    private final SpaceShip bomber = factory.createBomber();
 
-    Technologies technologies = Technologies.builder()
+    private final Technologies technologies = Technologies.builder()
             .attackTechnology(new AttackTechnology(0,0))
             .shieldTechnology(new ShieldTechnology(0,0))
             .hullTechnology(new HullTechnology(0,0))

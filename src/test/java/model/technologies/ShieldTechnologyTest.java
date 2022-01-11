@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ShieldTechnologyTest {
 
-    ShieldTechnology shieldTechnology = new ShieldTechnology(10000, 10000);
+    private final ShieldTechnology shieldTechnology = new ShieldTechnology(10000, 10000);
 
     @Test
     void shouldReturnUpgradeMetalCost(){

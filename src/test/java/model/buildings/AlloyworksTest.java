@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class AlloyworksTest {
 
-    Alloyworks alloyworks = new Alloyworks(1000, 500);
+    private final Alloyworks alloyworks = new Alloyworks(1000, 500);
 
     @Test
     void shouldReturnProductionPerTurnWhenLevelEquals0(){

@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class HullTechnologyTest {
 
-    HullTechnology hullTechnology = new HullTechnology(10000, 10000);
+    private final HullTechnology hullTechnology = new HullTechnology(10000, 10000);
     
     @Test
     void shouldReturnUpgradeMetalCost(){

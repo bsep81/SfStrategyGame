@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class LaboratoryTest {
 
-    Laboratory laboratory = new Laboratory(10000, 10000);
+    private final Laboratory laboratory = new Laboratory(10000, 10000);
 
     @Test
     void shouldReturnUpgradeMetalCost(){

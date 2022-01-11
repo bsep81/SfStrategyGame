@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MetalMineTest {
 
-    MetalMine metalMine = new MetalMine(500, 0);
+    private final MetalMine metalMine = new MetalMine(500, 0);
 
     @Test
     void shouldReturnProductionPerTurnWhenLevelEquals0(){

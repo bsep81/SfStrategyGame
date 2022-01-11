@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MiningTechnologyTest {
 
-    MiningTechnology miningTechnology = new MiningTechnology(10000, 10000);
+    private final MiningTechnology miningTechnology = new MiningTechnology(10000, 10000);
 
     @Test
     void shouldReturnUpgradeMetalCost(){

@@ -11,8 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class SpaceShipBaseParametersTest {
 
-    SpaceShipBaseParameters baseParameters = new SpaceShipBaseParameters(SpaceShipType.FIGHTER, 50, 10, 40);
-    Technologies technologies = Technologies.builder()
+    private final SpaceShipBaseParameters baseParameters = new SpaceShipBaseParameters(SpaceShipType.FIGHTER, 50, 10, 40);
+    private final Technologies technologies = Technologies.builder()
             .attackTechnology(new AttackTechnology(0,0))
             .shieldTechnology(new ShieldTechnology(0,0))
             .hullTechnology(new HullTechnology(0,0))

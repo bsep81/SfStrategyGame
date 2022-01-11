@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ColonyTest {
 
-    Colony colony = Colony.builder()
+    private final Colony colony = Colony.builder()
             .metal(1500)
             .alloys(500)
             .metalProperty(new SimpleStringProperty("METAL - 1500"))
