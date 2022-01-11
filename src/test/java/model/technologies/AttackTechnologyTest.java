@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class AttackTechnologyTest {
-    AttackTechnology attackTechnology = new AttackTechnology(10000, 10000);
+    private final AttackTechnology attackTechnology = new AttackTechnology(10000, 10000);
 
     @Test
     void shouldReturnUpgradeMetalCost(){

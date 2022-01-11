@@ -11,8 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ShipyardTest {
 
-    Shipyard shipyard = new Shipyard(20000, 10000);
-    SpaceShipFactory factory = new SpaceShipFactory();
+    private final Shipyard shipyard = new Shipyard(20000, 10000);
+    private final SpaceShipFactory factory = new SpaceShipFactory();
 
     @Test
     void shouldReturnUpgradeMetalCost(){

@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class SpaceShipFactoryTest {
 
-    SpaceShipFactory factory = new SpaceShipFactory();
+    private final SpaceShipFactory factory = new SpaceShipFactory();
 
     @Test
     void shouldReturnNewFighter(){

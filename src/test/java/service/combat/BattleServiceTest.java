@@ -18,19 +18,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class BattleServiceTest {
 
-    BattleService battleService = new BattleService();
-    SpaceShipFactory factory = new SpaceShipFactory();
+    private final BattleService battleService = new BattleService();
+    private final SpaceShipFactory factory = new SpaceShipFactory();
 
-    Technologies technologies = Technologies.builder()
+    private final Technologies technologies = Technologies.builder()
             .attackTechnology(new AttackTechnology(0,0))
             .shieldTechnology(new ShieldTechnology(0,0))
             .hullTechnology(new HullTechnology(0,0))
             .build();
 
-    List<SpaceShip> defendingSpaceShips = new ArrayList<>();
-    List<SpaceShip> attackingSpaceShips = new ArrayList<>();
-    Fleet defendingFleet;
-    Fleet attackingFleet;
+    private List<SpaceShip> defendingSpaceShips = new ArrayList<>();
+    private Fleet defendingFleet;
+    private Fleet attackingFleet;
 
 
 
@@ -46,7 +45,7 @@ class BattleServiceTest {
                 factory.createDestroyer(),
                 factory.createBomber());
 
-        attackingSpaceShips = List.of(factory.createFighter(),
+        List<SpaceShip> attackingSpaceShips = List.of(factory.createFighter(),
                 factory.createFighter(),
                 factory.createFighter());
 

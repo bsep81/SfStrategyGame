@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class AlloysTechnologyTest {
 
-    AlloysTechnology alloysTechnology = new AlloysTechnology(20000, 10000);
+    private final AlloysTechnology alloysTechnology = new AlloysTechnology(20000, 10000);
 
     @Test
     void shouldReturnUpgradeMetalCost(){
